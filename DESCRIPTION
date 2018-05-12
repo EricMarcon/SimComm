@@ -1,0 +1,10 @@
+Package: CommSim
+Type: Package
+Title: Community Simulator.
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Simulation of communities.
+License: GNU GPL
+Encoding: UTF-8
+LazyData: true
