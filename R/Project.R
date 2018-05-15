@@ -1,6 +1,6 @@
 
 
-nnwhich.community_gridmodel <- function(X, type = "von Neumann") {
+nnwhich.community_gridmodel <- function(X, neighborhood = "von Neumann") {
   neighbors <- function(point, type) {
     dx <- as.integer(round(abs(X$pattern$x[point] - X$pattern$x)))
     dy <- as.integer(round(abs(X$pattern$y[point] - X$pattern$y)))

@@ -1,3 +1,22 @@
+#' Community Model Class
+#'
+#' The model represents a community, i.e. a set of interacting objects called agents. Their location is described by a \code{pattern} that \code{evolve}s along a \code{timeline}.
+#'
+#' @docType class
+#' @importFrom R6 R6Class
+#' @export
+#' @return An \code{\link{R6Class}}.
+#' @format \code{\link{R6Class}} object.
+#' @field pattern The pattern which describes the location of agents.
+#' @field timeline A \code{\link{timeline}} object.
+#' @section Methods:
+#' \describe{
+#'   \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = timeline_regular())}}{Initialization.}
+#'   \item{\code{plot(...)}}{Default plot method: plots the pattern.}
+#'   \item{\code{run(animate = FALSE, sleep = 0)}}{Run the model.}
+#' }
+#' @examples
+#' myModel <- community_model$new
 community_model <- R6Class("community_model",
   public = list(
     pattern = NULL,
@@ -6,7 +25,8 @@ community_model <- R6Class("community_model",
 
     initialize = function(pattern = pattern_grid(), evolve = evolve_none, timeline = timeline_regular()) {
       self$pattern <- pattern
-      self$evolve <- function(deltaT) NA
+      self$evolve <- function(deltaT, neighborhood) NA
+      formals(self$evolve) <- formals(evolve)
       body(self$evolve) <- body(evolve)
       self$timeline <- timeline
     },
@@ -30,7 +50,14 @@ community_model <- R6Class("community_model",
 )
 
 
-
+#' Community Grid Model Class
+#'
+#' A \code{\link{community_model}} whose pattern is a regular, rectangular grid of points.
+#' @field tess A tesselization of the window containing the points, used to plot the model.
+#' @docType class
+#' @inherit community_model
+#' @inheritParams community_model
+#' @export
 community_gridmodel <- R6Class("community_gridmodel",
   inherit = community_model,
   public = list(
@@ -51,6 +78,13 @@ community_gridmodel <- R6Class("community_gridmodel",
 
 
 
+#' Community Matrix Model Class
+#'
+#' A \code{\link{community_model}} whose pattern is a regular, rectangular grid of points.
+#' @docType class
+#' @inherit community_model
+#' @inheritParams community_model
+#' @export
 community_matrixmodel <- R6Class("community_matrixmodel",
   inherit = community_model,
   public = list(
