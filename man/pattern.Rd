@@ -3,17 +3,28 @@
 \name{pattern}
 \alias{pattern}
 \alias{pattern_grid}
-\alias{pattern_matrix}
+\alias{pattern_matrix_individuals}
 \title{Pattern}
 \usage{
 pattern_grid(nx = 8, ny = nx)
 
-pattern_matrix(nx = 8, ny = nx)
+pattern_matrix_individuals(nx = 8, ny = nx, S = 300,
+  Distribution = "lnorm", sd = 1, prob = 0.1, alpha = 40)
 }
 \arguments{
 \item{nx}{The number of X values (columns) of the grid or the matrix.}
 
 \item{ny}{The number of y values (lines) of the grid or the matrix.}
+
+\item{S}{The number of species.}
+
+\item{Distribution}{The distribution of species frequencies. May be \code{"lnorm"} (log-normal), \code{"lseries"} (log-series), \code{"geom"} (geometric) or \code{"bstick"} (broken stick).}
+
+\item{sd}{The simulated distribution standard deviation. For the log-normal distribution, this is the standard deviation on the log scale.}
+
+\item{prob}{The proportion of ressources taken by successive species in the geometric model.}
+
+\item{alpha}{Fisher's alpha in the log-series model.}
 }
 \value{
 \code{evolve} methods should modifiy the model's pattern directly and return \code{NULL}.
@@ -29,6 +40,6 @@ Patterns are to be used in the \code{pattern} field of a \code{\link{community_m
 Available patterns:
 \describe{
   \item{\code{pattern_grid}}{A rectangular, regular grid of points. Each point has marks. Point are on a regular grid of 1x1 units of distance.}
-  \item{\code{pattern_matrix}}{A matrix. Each cell of the matrix has a numeric value.}
+  \item{\code{pattern_matrix_individuals}}{A matrix. Each cell of the matrix is an agent and has a numeric value equal to its type.}
 }
 }

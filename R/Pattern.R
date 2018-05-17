@@ -9,12 +9,17 @@
 #' Available patterns:
 #' \describe{
 #'   \item{\code{pattern_grid}}{A rectangular, regular grid of points. Each point has marks. Point are on a regular grid of 1x1 units of distance.}
-#'   \item{\code{pattern_matrix}}{A matrix. Each cell of the matrix has a numeric value.}
+#'   \item{\code{pattern_matrix_individuals}}{A matrix. Each cell of the matrix is an agent and has a numeric value equal to its type.}
 #' }
 #'
 #'
 #' @param nx The number of X values (columns) of the grid or the matrix.
 #' @param ny The number of y values (lines) of the grid or the matrix.
+#' @param S The number of species.
+#' @param Distribution The distribution of species frequencies. May be \code{"lnorm"} (log-normal), \code{"lseries"} (log-series), \code{"geom"} (geometric) or \code{"bstick"} (broken stick).
+#' @param sd The simulated distribution standard deviation. For the log-normal distribution, this is the standard deviation on the log scale.
+#' @param prob The proportion of ressources taken by successive species in the geometric model.
+#' @param alpha Fisher's alpha in the log-series model.
 #' @name pattern
 #' @return \code{evolve} methods should modifiy the model's pattern directly and return \code{NULL}.
 NULL
@@ -34,11 +39,17 @@ pattern_grid <- function(nx = 8, ny = nx) {
   return(the_ppp)
 }
 
+
+
 #' @rdname pattern
 #'
 #' @export
-pattern_matrix <- function(nx = 8, ny = nx) {
+pattern_matrix_individuals <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd = 1, prob = 0.1, alpha = 40) {
+  # Draw a random community
+  the_community <-  entropart::rCommunity(1, size=100*nx*ny, S=S, Distribution=Distribution, sd=sd, prob=prob, alpha=alpha, CheckArguments=FALSE)
+  # Names are numbers
+  spNames<- seq(length(the_community))
   # Make a matrix
-  the_matrix <- matrix(nrow=ny, ncol=nx)
+  the_matrix <- matrix(sample(spNames, size=nx*ny, replace=TRUE, prob=the_community/sum(the_community)), nrow=ny, ncol=nx)
   return(the_matrix)
 }

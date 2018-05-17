@@ -6,7 +6,7 @@ Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Simulation of communities.
 Depends: R6
-Imports: spatstat
+Imports: entropart, spatstat
 License: GNU GPL
 Encoding: UTF-8
 LazyData: true
