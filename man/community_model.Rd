@@ -19,13 +19,13 @@ The model represents a community, i.e. a set of interacting objects called agent
 \describe{
 \item{\code{pattern}}{The pattern which describes the location of agents.}
 
-\item{\code{timeline}}{A \code{\link{timeline}} object.}
+\item{\code{timeline}}{A numeric vector.}
 }}
 
 \section{Methods}{
 
 \describe{
-  \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = timeline_regular())}}{Initialization.}
+  \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = 0)}}{Initialization.}
   \item{\code{plot(...)}}{Default plot method: plots the pattern.}
   \item{\code{run(animate = FALSE, sleep = 0)}}{Run the model.}
 }

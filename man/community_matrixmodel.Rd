@@ -17,7 +17,7 @@ A \code{\link{community_model}} whose pattern is a regular, rectangular grid of 
 \section{Methods}{
 
 \describe{
-  \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = timeline_regular())}}{Initialization.}
+  \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = 0)}}{Initialization.}
   \item{\code{plot(...)}}{Default plot method: plots the pattern.}
   \item{\code{run(animate = FALSE, sleep = 0)}}{Run the model.}
 }
