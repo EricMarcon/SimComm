@@ -30,7 +30,7 @@ community_model <- R6Class("community_model",
       return(self$run_patterns[[i]])
     },
 
-    prepare_to_run = function(save, more_time) {
+    prepare_to_save = function(save, more_time) {
       # Code to prepare private$run_patterns to store the succesive patterns. Assumes that run_patterns is a list, to be overridden.
       if(save){
         if(is.null(more_time) | is.null(self$run_patterns)) {
@@ -81,7 +81,7 @@ community_model <- R6Class("community_model",
       # Specific plot code to be overridden
       plot(self$saved_pattern(time), ...)
       # Animation
-      if (sleep>0) ani.pause(sleep)
+      if (sleep>0) animation::ani.pause(sleep)
     },
 
     # ggplot method for the pattern. To be overridden.
@@ -95,6 +95,7 @@ community_model <- R6Class("community_model",
     run = function(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL) {
       if(animate) self$plot(main="Initial")
       # Prepare the time line
+      if(is.null(self$last_time)) self$last_time = self$timeline[1]
       if(is.null(more_time)) {
         # Start from scratch
         self$last_time = self$timeline[1]
@@ -112,7 +113,7 @@ community_model <- R6Class("community_model",
         save <- !is.null(self$run_patterns)
       }
       # Prepare the data structure to save evolutions
-      private$prepare_to_run(save, more_time)
+      private$prepare_to_save(save, more_time)
       # Run the remaining timeline
       for(time in self$timeline[self$timeline > self$last_time]) {
         private$evolve(time, save)
@@ -189,7 +190,7 @@ community_gridmodel <- R6Class("community_gridmodel",
         plot(self$pattern, ..., which=which)
       }
       # Animation
-      if (sleep>0) ani.pause(sleep)
+      if (sleep>0) animation::ani.pause(sleep)
     }
   )
 )
@@ -210,7 +211,7 @@ community_matrixmodel <- R6Class("community_matrixmodel",
       return(t(self$run_patterns[, , i]))
     },
 
-    prepare_to_run = function(save, more_time) {
+    prepare_to_save = function(save, more_time) {
       if(save){
         # Data is a matrix. Save runs in a 3D array.
         if(is.null(more_time) | is.null(self$run_patterns)) {
@@ -242,7 +243,7 @@ community_matrixmodel <- R6Class("community_matrixmodel",
     plot = function(..., time = NULL, sleep=0) {
       if (sleep>0) grDevices::dev.hold()
       graphics::image(x=1:ncol(self$pattern), y=1:nrow(self$pattern), z=self$saved_pattern(time), xlab="", ylab="", axes=FALSE, asp=1, ...)
-      if (sleep>0) ani.pause(sleep)
+      if (sleep>0) animation::ani.pause(sleep)
     },
 
     autoplot = function(...) {
