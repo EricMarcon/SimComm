@@ -21,6 +21,8 @@ NULL
 #' @param ... Extra arguments passed to the plot method.
 #'
 #' @return NULL
+#' @importFrom graphics plot
+#' @method plot community_model
 #' @export
 #'
 #' @examples
@@ -39,6 +41,8 @@ plot.community_model <- function(x, ...) {
 #' @param ... Extra arguments passed to the plot method.
 #'
 #' @return NULL
+#' @importFrom ggplot2 autoplot
+#' @method autoplot community_model
 #' @export
 #'
 #' @examples

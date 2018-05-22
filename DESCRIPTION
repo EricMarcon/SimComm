@@ -2,11 +2,12 @@ Package: CommSim
 Type: Package
 Title: Community Simulator
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Authors@R: c(
+  person("Eric", "Marcon", email="eric.marcon@ecofog.gf", role=c("aut", "cre"))
+  )
 Description: Simulation of communities.
-Depends: R6, SpatDiv, dbmss
-Imports: animation, grDevices, spatstat
+Depends: R6
+Imports: animation, grDevices, spatstat, SpatDiv, ggplot2, entropart, dbmss
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
