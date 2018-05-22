@@ -52,3 +52,21 @@ nnwhich.community_gridmodel <- function(X, neighborhood = "von Neumann") {
 plot.community_model <- function(x, ...) {
   x$plot(...)
 }
+
+
+#' autoplot Community Models
+#'
+#' S3 method to force the use of the R6 method.
+#'
+#' This is a helper function to always use the R6 method rather than the S3 method: \code{autoplot(MyModel)} is translated to \code{MyModel$autoplot}.
+#'
+#' @param object The model to plot.
+#' @param ... Extra arguments passed to the plot method.
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+autoplot.community_model <- function(object, ...) {
+  object$autoplot(...)
+}

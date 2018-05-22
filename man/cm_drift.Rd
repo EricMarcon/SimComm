@@ -12,14 +12,27 @@ cm_drift
 An \code{\link{R6Class}}.
 }
 \description{
-A \code{\link{community_model}} whose pattern is a regular, rectangular grid of points.
+A \code{\link{community_matrixmodel}} where each cell contains an individual. Marks are species.
+At each generation, each individual is replaced by one of its neghbors.
 }
-\section{Methods}{
+\section{Fields}{
 
 \describe{
-  \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = 0)}}{Initialization.}
-  \item{\code{plot(...)}}{Default plot method: plots the pattern.}
-  \item{\code{run(animate = FALSE, sleep = 0)}}{Run the model.}
+\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
+"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+"Moore 2" or "24" for two rings of neighbors.}
+}}
+
+\section{Public Methods}{
+
+\describe{
+  \item{\code{initialize(pattern = NULL, timeline = 0)}}{Initialization.}
+  \item{\code{plot(..., time=NULL, sleep=0)}}{Default plot method: plots the pattern.}
+  \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
+  \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
+  \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
+  \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
 }
 }
 

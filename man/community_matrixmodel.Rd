@@ -14,12 +14,15 @@ An \code{\link{R6Class}}.
 \description{
 A \code{\link{community_model}} whose pattern is a regular, rectangular grid of points.
 }
-\section{Methods}{
+\section{Public Methods}{
 
 \describe{
-  \item{\code{initialize(pattern = pattern_matrix(), evolve = evolve_none, timeline = 0)}}{Initialization.}
-  \item{\code{plot(...)}}{Default plot method: plots the pattern.}
-  \item{\code{run(animate = FALSE, sleep = 0)}}{Run the model.}
+  \item{\code{initialize(pattern = NULL, timeline = 0)}}{Initialization.}
+  \item{\code{plot(..., time=NULL, sleep=0)}}{Default plot method: plots the pattern.}
+  \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
+  \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
+  \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
+  \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
 }
 }
 
