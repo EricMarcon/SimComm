@@ -41,9 +41,10 @@ pattern_grid <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd =
   the_community <-  entropart::rCommunity(1, size=100*nx*ny, S=S, Distribution=Distribution, sd=sd, prob=prob, alpha=alpha, CheckArguments=FALSE)
   # Names are sp#
   spNames<- paste0("sp", seq(length(the_community)))
-  # Make marks
-  the_ppp$marks <- data.frame(PointType=sample(spNames, size=nx*ny, replace=TRUE, prob=the_community/sum(the_community)))
-  # The class of pattern_grid obbjects is ppp, defined in spatstat.
+  # Make marks: a dataframe with 2 columns: PointType and PointWeight, defining a wmppp from package dbmss.
+  the_ppp$marks <- data.frame(PointType=sample(spNames, size=nx*ny, replace=TRUE, prob=the_community/sum(the_community)), PointWeight=1)
+  # The class of pattern_grid obbjects is ppp, defined in spatstat. Make it a wmppp for package dbmss.
+  class(the_ppp) <- c("wmppp", class(the_ppp))
   return(the_ppp)
 }
 

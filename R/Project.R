@@ -11,31 +11,6 @@
 NULL
 
 
-#' Neighbor points in a grid model
-#'
-#' @param X A \code{\link{community_model}}.
-#' @param neighborhood Definition of the neighborhood. "von Neumann" or "4" means the upper, lower, left and right neighbors are considered; "8" means the 8 nearest neighbors; "Moore" or "24" means the 24 nearest neighbors.
-#'
-#' @return A matrix. Each line corresponds to a point of the grid (points are ordered): values are the neighbor points.
-#' @export
-#'
-#' @examples
-nnwhich.community_gridmodel <- function(X, neighborhood = "von Neumann") {
-  neighbors <- function(point, neighborhood) {
-    dx <- as.integer(round(abs(X$pattern$x[point] - X$pattern$x)))
-    dy <- as.integer(round(abs(X$pattern$y[point] - X$pattern$y)))
-    if(neighborhood == "von Neumann" | neighborhood == "4") the_neighbors <- which(((dx==1L | dx==X$pattern$window$xrange[2]-1L) & (dy==0L)) |
-                                                                     (dy==1L | dy==X$pattern$window$yrange[2]-1L) & (dx==0L))
-    if(neighborhood == "8") the_neighbors <- which((dx<=1L | dx==X$pattern$window$xrange[2]-1L) &
-                                             (dy<=1L | dy==X$pattern$window$yrange[2]-1L) & !(dx==0L & dy==0L))
-    if(neighborhood == "Moore" | neighborhood == "24") the_neighbors <- which((dx<=2L | dx>=X$pattern$window$xrange[2]-2L) &
-                                                                (dy<=2L | dy>=X$pattern$window$yrange[2]-2L) & !(dx==0L & dy==0L))
-    return(the_neighbors)
-  }
-  return(t(sapply(seq(X$pattern$n), neighbors, neighborhood=neighborhood)))
-}
-
-
 #' plot Community Models
 #'
 #' S3 method to force the use of the R6 method.

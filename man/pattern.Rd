@@ -4,12 +4,22 @@
 \alias{pattern}
 \alias{pattern_grid}
 \alias{pattern_matrix_individuals}
+\alias{pattern_matrix_logical}
+\alias{pm_Conway_oscillator}
+\alias{pm_Conway_glider}
 \title{Pattern}
 \usage{
-pattern_grid(nx = 8, ny = nx)
+pattern_grid(nx = 8, ny = nx, S = 300, Distribution = "lnorm", sd = 1,
+  prob = 0.1, alpha = 40)
 
 pattern_matrix_individuals(nx = 8, ny = nx, S = 300,
   Distribution = "lnorm", sd = 1, prob = 0.1, alpha = 40)
+
+pattern_matrix_logical(nx = 8, ny = nx, prob = 0.5)
+
+pm_Conway_oscillator()
+
+pm_Conway_glider(nx = 50, ny = nx)
 }
 \arguments{
 \item{nx}{The number of X values (columns) of the grid or the matrix.}
@@ -41,5 +51,6 @@ Available patterns:
 \describe{
   \item{\code{pattern_grid}}{A rectangular, regular grid of points. Each point has marks. Point are on a regular grid of 1x1 units of distance.}
   \item{\code{pattern_matrix_individuals}}{A matrix. Each cell of the matrix is an agent and has a numeric value equal to its type.}
+  \item{\code{pattern_matrix_logical}}{A matrix. Each cell of the matrix is \code{FALSE} or \code{TRUE} (dead or alive, present or absent...).}
 }
 }

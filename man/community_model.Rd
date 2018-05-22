@@ -30,7 +30,7 @@ The model represents a community, i.e. a set of interacting objects called agent
 
 \describe{
   \item{\code{initialize(pattern = NULL, timeline = 0)}}{Initialization.}
-  \item{\code{plot(..., time=NULL, sleep=0)}}{Default plot method: plots the pattern.}
+  \item{\code{plot(..., time=NULL, sleep=animation::ani.options("interval"))}}{Default plot method: plots the pattern.}
   \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
   \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
   \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}

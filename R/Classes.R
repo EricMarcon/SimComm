@@ -14,7 +14,7 @@
 #' @section Public Methods:
 #' \describe{
 #'   \item{\code{initialize(pattern = NULL, timeline = 0)}}{Initialization.}
-#'   \item{\code{plot(..., time=NULL, sleep=0)}}{Default plot method: plots the pattern.}
+#'   \item{\code{plot(..., time=NULL, sleep=animation::ani.options("interval"))}}{Default plot method: plots the pattern.}
 #'   \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
 #'   \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
 #'   \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
@@ -92,7 +92,7 @@ community_model <- R6Class("community_model",
       return(ggplot2::ggplot())
     },
 
-    run = function(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL) {
+    run = function(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL) {
       if(animate) self$plot(main="Initial")
       # Prepare the time line
       if(is.null(more_time)) {
@@ -119,7 +119,6 @@ community_model <- R6Class("community_model",
         self$last_time <- time
         if(animate) {
           self$plot(main=paste("Time:", time), sleep=sleep)
-          # if (sleep > 0) Sys.sleep(sleep)
         }
       }
     },
@@ -179,12 +178,16 @@ community_gridmodel <- R6Class("community_gridmodel",
       self$tess <- spatstat::dirichlet(self$pattern)
     },
 
-    plot = function(...) {
+    plot = function(..., which="PointType") {
       # if sleep > 0, use the animation package for a fluid sequence of images
       if (sleep>0) grDevices::dev.hold()
       # Plot
-      marks(self$tess) <- marks(self$pattern)
-      plot(self$tess, do.col=TRUE, ...)
+      if (which == "PointType") {
+        spatstat::marks(self$tess) <- self$pattern$marks$PointType
+        plot(self$tess, do.col=TRUE, ...)
+      } else {
+        plot(self$pattern, ..., which=which)
+      }
       # Animation
       if (sleep>0) ani.pause(sleep)
     }
