@@ -1,4 +1,4 @@
-#' CommSim
+#' SimComm
 #'
 #' Community simulator.
 #'
@@ -6,7 +6,7 @@
 #' The communities are represented by R6 classes: \code{\link{community_model}}. A model contains a pattern, a timeline and an evolution method that is run along the timeline.
 #' This is a classical approach in community ecoology modeling or agent based models.
 #'
-#' @name CommSim
+#' @name SimComm
 #' @docType package
 NULL
 

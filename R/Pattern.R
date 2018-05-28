@@ -1,4 +1,4 @@
-#' Pattern
+#' Patterns
 #'
 #' The location of the agents of a model is described by a pattern.
 #' Several patterns are available by default.
@@ -21,12 +21,12 @@
 #' @param sd The simulated distribution standard deviation. For the log-normal distribution, this is the standard deviation on the log scale.
 #' @param prob The proportion of ressources taken by successive species in the geometric model.
 #' @param alpha Fisher's alpha in the log-series model.
-#' @name pattern
+#' @name patterns
 #' @return \code{evolve} methods should modifiy the model's pattern directly and return \code{NULL}.
 NULL
 
 
-#' @rdname pattern
+#' @rdname patterns
 #'
 #' @export
 pattern_grid <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd = 1, prob = 0.1, alpha = 40) {
@@ -50,7 +50,7 @@ pattern_grid <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd =
 
 
 
-#' @rdname pattern
+#' @rdname patterns
 #'
 #' @export
 pattern_matrix_individuals <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd = 1, prob = 0.1, alpha = 40) {
@@ -67,7 +67,7 @@ pattern_matrix_individuals <- function(nx = 8, ny = nx, S = 300, Distribution = 
 
 
 
-#' @rdname pattern
+#' @rdname patterns
 #'
 #' @export
 pattern_matrix_logical <- function(nx = 8, ny = nx, prob = 0.5) {
@@ -78,7 +78,7 @@ pattern_matrix_logical <- function(nx = 8, ny = nx, prob = 0.5) {
   return(the_matrix)
 }
 
-#' @rdname pattern
+#' @rdname patterns
 #'
 #' @export
 pm_Conway_oscillator <- function() {
@@ -90,7 +90,7 @@ pm_Conway_oscillator <- function() {
 }
 
 
-#' @rdname pattern
+#' @rdname patterns
 #'
 #' @export
 pm_Conway_glider <- function(nx = 50, ny = nx) {

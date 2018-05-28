@@ -1,0 +1,48 @@
+## layout the order in which topics are presented in the rd docs
+# 1. get a list of topics with the following:
+#    db <- tools::Rd_db("SimComm")
+#    topics <- gsub("\\.Rd", "", names(db))
+#    cat(paste(topics, collapse = "\n"))
+# 2. arrange the topic names into sections as desired in the format below:
+## If you need to see which topics are missing, do the following in addition:
+# cur <- yaml::yaml.load_file("rd_index.yaml")
+# cur <- unlist(lapply(cur, function(x) x$topics))
+# cat(paste(setdiff(topics, cur), collapse = "\n"))
+knitr:
+  eval: true
+
+sections:
+-
+  section_name: Package description
+  topics:
+    -
+      file: SimComm.Rd
+      title: "SimComm: SimComm, SimComm-package"
+-
+  section_name: Abstract classes
+  topics:
+    - community_model
+    - community_gridmodel
+    - community_matrixmodel
+-
+  section_name: Comunity Models
+  topics:
+    - cg_drift
+    - cm_Conway
+    - cm_drift
+    - patterns
+-
+  section_name: Utilities
+  topics:
+    - autoplot.community_model
+    - plot.community_model
+-
+  section_name: entropart methods
+  topics:
+    - as.AbdVector.pattern_matrix_individuals
+    - as.ProbaVector.pattern_matrix_individuals
+    - Diversity.pattern_matrix_individuals
+    - Richness.pattern_matrix_individuals
+    - Shannon.pattern_matrix_individuals
+    - Simpson.pattern_matrix_individuals
+    - Tsallis.pattern_matrix_individuals

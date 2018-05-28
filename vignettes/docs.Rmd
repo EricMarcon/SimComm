@@ -1,0 +1,45 @@
+---
+title: "SimComm"
+subtitle: "A Simulator of Communities"
+author: ""
+copyright: ""
+output:
+  packagedocs::package_docs:
+    toc: true
+    toc_collapse: false
+redirect: https://ericmarcon.github.io/SimComm
+vignette: |
+  %\VignetteIndexEntry{SimComm Documentation}
+  %\VignetteEngine{packagedocs::redirect}
+navpills: |
+  <li class="active"><a href='index.html'>Docs</a></li>
+  <li><a href='rd.html'>Package Ref</a></li>
+  <li><a href='https://github.com/EricMarcon/SimComm'>Github<i class='fa fa-github'></i></a></li>
+---
+
+```{r global_options, include=FALSE}
+# R output pre blocks are styled by default to indicate output
+knitr::opts_chunk$set(comment = NA)
+# possible crop=TRUE
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+# shorthand for rd_link() - see ?packagedocs::rd_link for more information
+rdl <- function(x) packagedocs::rd_link(deparse(substitute(x)))
+```
+
+This is a preliminary version of a package designed to measure spatially-explicit diversity.
+
+# Getting started
+
+Install the package for _R_ from Github.
+
+```{r install, eval=FALSE}
+library("devtools")
+devtools::install_gitub("EricMarcon/SimComm")
+```
+
+
+# Demo
+
+To do...
+
