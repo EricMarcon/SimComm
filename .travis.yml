@@ -1,0 +1,13 @@
+language: R
+sudo: false
+cache: packages
+
+r_packages:
+ - devtools
+ - covr
+
+r_github_packages:
+ - EricMarcon/entropart
+
+after_success:
+  - Rscript -e 'library(covr); codecov(type ="all")'
