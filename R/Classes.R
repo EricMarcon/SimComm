@@ -21,7 +21,8 @@
 #'   \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
 #' }
 #' @examples
-#' myModel <- community_model$new
+#' myModel <- community_matrixmodel$new()
+#' myModel$autoplot()
 community_model <- R6Class("community_model",
   private = list(
     pattern_class = NULL,

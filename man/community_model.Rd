@@ -39,6 +39,7 @@ The model represents a community, i.e. a set of interacting objects called agent
 }
 
 \examples{
-myModel <- community_model$new
+myModel <- community_matrixmodel$new()
+myModel$autoplot()
 }
 \keyword{datasets}

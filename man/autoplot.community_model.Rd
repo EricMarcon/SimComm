@@ -17,3 +17,7 @@ S3 method to force the use of the R6 method.
 \details{
 This is a helper function to always use the R6 method rather than the S3 method: \code{autoplot(MyModel)} is translated to \code{MyModel$autoplot}.
 }
+\examples{
+myModel <- cm_drift$new(pattern_matrix_individuals(S=10))
+autoplot(myModel)
+}

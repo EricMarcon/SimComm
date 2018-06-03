@@ -26,6 +26,8 @@ NULL
 #' @export
 #'
 #' @examples
+#' myModel <- cm_drift$new(pattern_matrix_individuals(S=10))
+#' plot(myModel)
 plot.community_model <- function(x, ...) {
   x$plot(...)
 }
@@ -46,6 +48,8 @@ plot.community_model <- function(x, ...) {
 #' @export
 #'
 #' @examples
+#' myModel <- cm_drift$new(pattern_matrix_individuals(S=10))
+#' autoplot(myModel)
 autoplot.community_model <- function(object, ...) {
   object$autoplot(...)
 }
