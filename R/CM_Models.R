@@ -69,8 +69,8 @@ cm_drift <- R6Class("cm_drift",
     neighborhood = NULL,
     # palette = "PuOr",
 
-    initialize = function(pattern = pattern_matrix_individuals(), timeline = 0, neighborhood = "von Neumann 1") {
-      super$initialize(pattern=pattern, timeline=timeline)
+    initialize = function(pattern = pattern_matrix_individuals(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
+      super$initialize(pattern=pattern, timeline=timeline, type=type)
       if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
         self$neighborhood <- neighborhood
       } else {
@@ -97,8 +97,8 @@ cm_drift <- R6Class("cm_drift",
 #' @docType class
 #' @inherit community_matrixmodel
 #' @inheritParams cm_drift
-#' @field to_survive The number of neighbors necessary for an individual to survive.
-#' @field to_generate The number of neighbors necessary for an empty cell to generate an individual.
+#' @field to_survive The number of neighbors necessary for an individual to survive. Default is \code{2:3}.
+#' @field to_generate The number of neighbors necessary for an empty cell to generate an individual. Default is 3.
 #' @export
 cm_Conway <- R6Class("cm_Conway",
   inherit = community_matrixmodel,
@@ -157,8 +157,8 @@ cm_Conway <- R6Class("cm_Conway",
     to_survive = c(2, 3),
     to_generate = 3,
 
-    initialize = function(pattern = pattern_matrix_logical(), timeline = 0, neighborhood = "Moore 1") {
-      super$initialize(pattern=pattern, timeline=timeline)
+    initialize = function(pattern = pattern_matrix_logical(), timeline = 0, type = "Alive", neighborhood = "Moore 1") {
+      super$initialize(pattern=pattern, timeline=timeline, type=type)
       if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
         self$neighborhood <- neighborhood
       } else {

@@ -8,12 +8,13 @@
 #' @return An \code{\link{R6Class}}.
 #' @format \code{\link{R6Class}} object.
 #' @field pattern The pattern which describes the location of agents.
+#' @field type The type of individuals. Informational only.
 #' @field timeline A numeric vector.
 #' @field last_time The last time (in the time line) the model has been run.
 #' @field run_patterns The past patterns of the model, obtained by \code{run} and saved.
 #' @section Public Methods:
 #' \describe{
-#'   \item{\code{initialize(pattern = NULL, timeline = 0)}}{Initialization.}
+#'   \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
 #'   \item{\code{plot(..., time=NULL, sleep=animation::ani.options("interval"))}}{Default plot method: plots the pattern.}
 #'   \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
 #'   \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
@@ -65,14 +66,16 @@ community_model <- R6Class("community_model",
   ),
   public = list(
     pattern = NULL,
+    type = NULL,
     timeline = NULL,
     last_time = NULL,
     run_patterns = NULL,
 
-    initialize = function(pattern = NULL, timeline = 0) {
+    initialize = function(pattern = NULL, timeline = 0, type = "Species") {
       self$pattern <- pattern
       private$pattern_class <- class(pattern)
       self$timeline <- sort(timeline)
+      self$type <- type
     },
 
     # plot method for the pattern. To be overridden.
@@ -128,7 +131,11 @@ community_model <- R6Class("community_model",
     saved_pattern = function(time) {
       # Find the saved pattern at the chosen time
       if(is.null(time)) {
-        the_pattern <- t(self$pattern)
+        if(is.null(self$pattern)) {
+          return(NULL)
+        } else {
+          the_pattern <- t(self$pattern)
+        }
       } else {
         if(is.null(self$run_patterns)) {
           stop("No saved patterns. Run the model with argument save=TRUE before plotting or using saved patterns.")
@@ -175,9 +182,10 @@ community_gridmodel <- R6Class("community_gridmodel",
   public = list(
     tess = NULL,
 
-    initialize = function(pattern = pattern_grid(), timeline = 0) {
+    initialize = function(pattern = pattern_grid(), timeline = 0, type = "Species") {
       super$initialize(pattern=pattern, timeline=timeline)
       self$tess <- spatstat::dirichlet(self$pattern)
+      self$type <- type
     },
 
     plot = function(..., which="PointType") {
@@ -249,14 +257,18 @@ community_matrixmodel <- R6Class("community_matrixmodel",
 
     autoplot = function(...) {
       the_pattern <- self$saved_pattern(time)
-      dimnames(the_pattern) <- list(seq(nrow(the_pattern)), seq(ncol(the_pattern)))
-      the_df <- as.data.frame.table(the_pattern)
-      names(the_df) <- c("x", "y", "Species")
-      the_plot <- ggplot2::ggplot(data=the_df, ggplot2::aes_(x=~x, y=~y)) +
-        ggplot2::geom_tile(ggplot2::aes_(fill=~Species), col="black") +
-        ggplot2::theme(panel.grid = ggplot2::element_line()) +
-        ggplot2::coord_fixed()
-      return(the_plot)
+      if(is.null(the_pattern)) {
+        invisible(NULL)
+      } else {
+        dimnames(the_pattern) <- list(seq(nrow(the_pattern)), seq(ncol(the_pattern)))
+        the_df <- as.data.frame.table(the_pattern)
+        names(the_df) <- c("x", "y", self$type)
+        the_plot <- ggplot2::ggplot(data=the_df, ggplot2::aes_(x=~x, y=~y)) +
+          ggplot2::geom_tile(ggplot2::aes_(fill=~Species), col="black") +
+          ggplot2::theme(panel.grid = ggplot2::element_line()) +
+          ggplot2::coord_fixed()
+        return(the_plot)
+      }
     }
   )
 )

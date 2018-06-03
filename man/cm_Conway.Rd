@@ -22,9 +22,9 @@ Edge effects are eliminated by a toroidal correction.
 \section{Fields}{
 
 \describe{
-\item{\code{to_survive}}{The number of neighbors necessary for an individual to survive.}
+\item{\code{to_survive}}{The number of neighbors necessary for an individual to survive. Default is \code{2:3}.}
 
-\item{\code{to_generate}}{The number of neighbors necessary for an empty cell to generate an individual.}
+\item{\code{to_generate}}{The number of neighbors necessary for an empty cell to generate an individual. Default is 3.}
 }}
 
 \section{Public Methods}{

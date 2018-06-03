@@ -89,13 +89,7 @@
           <li><a href="#plot.community_model">plot.community_model</a></li>
           </ul></li>
           <li><a href="#entropart-methods">entropart methods</a><ul>
-          <li><a href="#as.abdvector.pattern_matrix_individuals">as.AbdVector.pattern_matrix_individuals</a></li>
-          <li><a href="#as.probavector.pattern_matrix_individuals">as.ProbaVector.pattern_matrix_individuals</a></li>
-          <li><a href="#diversity.pattern_matrix_individuals">Diversity.pattern_matrix_individuals</a></li>
-          <li><a href="#richness.pattern_matrix_individuals">Richness.pattern_matrix_individuals</a></li>
-          <li><a href="#shannon.pattern_matrix_individuals">Shannon.pattern_matrix_individuals</a></li>
-          <li><a href="#simpson.pattern_matrix_individuals">Simpson.pattern_matrix_individuals</a></li>
-          <li><a href="#tsallis.pattern_matrix_individuals">Tsallis.pattern_matrix_individuals</a></li>
+          <li><a href="#entropart">entropart</a></li>
           </ul></li>
           </ul>
         </div>
@@ -125,13 +119,13 @@ Simulation of communities.
 Depends
 </h4>
 <p>
-R6
+R6, entropart, ggplot2
 </p>
 <h4>
 Imports
 </h4>
 <p>
-animation, grDevices, spatstat, SpatDiv, ggplot2, entropart, dbmss
+animation, grDevices, spatstat, SpatDiv, dbmss
 </p>
 <h4>
 Suggests
@@ -294,7 +288,8 @@ Applies the function FUN to the saved patterns along time and returns a datafram
 <h4>
 Examples
 </h4>
-<pre class="r"><code>myModel &lt;- community_model$new</code></pre>
+<pre class="r"><code>myModel &lt;- community_matrixmodel$new()
+myModel$autoplot()</code></pre>
 </div>
 <div id="community_gridmodel" class="section level2">
 <h2>community_gridmodel</h2>
@@ -650,7 +645,7 @@ Fields
 <code>to_survive</code>
 </dt>
 <dd>
-The number of neighbors necessary for an individual to survive.
+The number of neighbors necessary for an individual to survive. Default is <code>2:3</code>.
 </dd>
 </p>
 <p class="rd-p">
@@ -658,7 +653,7 @@ The number of neighbors necessary for an individual to survive.
 <code>to_generate</code>
 </dt>
 <dd>
-The number of neighbors necessary for an empty cell to generate an individual.
+The number of neighbors necessary for an empty cell to generate an individual. Default is 3.
 </dd>
 </p>
 <p class="rd-p">
@@ -988,6 +983,12 @@ Details
 <p class="rd-p">
 This is a helper function to always use the R6 method rather than the S3 method: <code>autoplot(MyModel)</code> is translated to <code>MyModel$autoplot</code>.
 </p>
+<h4>
+Examples
+</h4>
+<pre class="r"><code>myModel &lt;- cm_drift$new(pattern_matrix_individuals(S=10))
+autoplot(myModel)</code></pre>
+<p><img src="rd_files/figure-html/autoplot.community_model_id_9,%20TRUE-1.png" width="624" /></p>
 </div>
 <div id="plot.community_model" class="section level2">
 <h2>plot.community_model</h2>
@@ -1025,23 +1026,35 @@ Details
 <p class="rd-p">
 This is a helper function to always use the R6 method rather than the S3 method: <code>plot(MyModel)</code> is translated to <code>MyModel$plot</code>.
 </p>
+<h4>
+Examples
+</h4>
+<pre class="r"><code>myModel &lt;- cm_drift$new(pattern_matrix_individuals(S=10))
+plot(myModel)</code></pre>
+<p><img src="rd_files/figure-html/plot.community_model_id_10,%20TRUE-1.png" width="624" /></p>
 </div>
 </div>
 <div id="entropart-methods" class="section level1">
 <h1>entropart methods</h1>
-<div id="as.abdvector.pattern_matrix_individuals" class="section level2">
-<h2>as.AbdVector.pattern_matrix_individuals</h2>
-<a id="as.AbdVector.pattern_matrix_individuals_alias"></a>
+<div id="entropart" class="section level2">
+<h2>entropart</h2>
+<a id="entropart_alias"></a>
 <h3>
-Abundance vector of a matrix of individuals
+entropart Methods
 </h3>
 <p class="rd-p">
-Gets an <code><a href='http://www.rdocumentation.org/packages/entropart/topics/SpeciesDistribution'>AbdVector</a></code> object from a <code><a href='patterns.html'>pattern_matrix_individuals</a></code> object to measure diversity with the entropart package.
+The entropart package provides generic methods to measure diversity. S3 methods to aplly them to simulated communities are available here. <code><a href='http://www.rdocumentation.org/packages/entropart/topics/SpeciesDistribution'>AbdVector</a></code> returns an abundance vector and <code><a href='http://www.rdocumentation.org/packages/entropart/topics/SpeciesDistribution'>ProbaVector</a></code> returns a probability vector. <code><a href='http://www.rdocumentation.org/packages/entropart/topics/Tsallis'>Tsallis</a></code> returns Tsallis’s entropy of a community, <code><a href='http://www.rdocumentation.org/packages/entropart/topics/Diversity'>Diversity</a></code> its diversity. <code><a href='http://www.rdocumentation.org/packages/entropart/topics/Richness'>Richness</a></code>, <code><a href='http://www.rdocumentation.org/packages/entropart/topics/Shannon'>Shannon</a></code> and <code><a href='http://www.rdocumentation.org/packages/entropart/topics/Simpson'>Simpson</a></code> return particular indices of diversity.
 </p>
 <h4>
 Usage
 </h4>
-<pre class="r"><code><div>"as.AbdVector"(x, ...)</div></code></pre>
+<pre class="r"><code><div>"as.AbdVector"(x, ...)</div>
+<div>"as.ProbaVector"(x, ...)</div>
+<div>"Tsallis"(NorP, q&nbsp;=&nbsp;1, Correction&nbsp;=&nbsp;"Best", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div>
+<div>"Diversity"(NorP, q&nbsp;=&nbsp;1, Correction&nbsp;=&nbsp;"Best", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div>
+<div>"Richness"(NorP, Correction&nbsp;=&nbsp;"Chao1", Alpha&nbsp;=&nbsp;0.05, JackOver&nbsp;=&nbsp;FALSE, ..., CheckArguments&nbsp;=&nbsp;TRUE)</div>
+<div>"Shannon"(NorP, Correction&nbsp;=&nbsp;"Best", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div>
+<div>"Simpson"(NorP, Correction&nbsp;=&nbsp;"Lande", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div></code></pre>
 <h4>
 Arguments
 </h4>
@@ -1058,72 +1071,6 @@ An object of class <code><a href=#patterns>pattern_matrix_individuals</a></code>
 <dd class="rd-dd">
 Further arguments. Unsused.
 </dd>
-</dl>
-<h4>
-Value
-</h4>
-<p class="rd-p">
-<dl>
-An <code><a href=http://www.rdocumentation.org/packages/entropart/topics/SpeciesDistribution>AbdVector</a></code> object, which is a named integer vector.
-</dl>
-</p>
-</div>
-<div id="as.probavector.pattern_matrix_individuals" class="section level2">
-<h2>as.ProbaVector.pattern_matrix_individuals</h2>
-<a id="as.ProbaVector.pattern_matrix_individuals_alias"></a>
-<h3>
-Probabilty vector of a matrix of individuals
-</h3>
-<p class="rd-p">
-Gets an <code><a href='http://www.rdocumentation.org/packages/entropart/topics/SpeciesDistribution'>ProbaVector</a></code> object from a <code><a href='patterns.html'>pattern_matrix_individuals</a></code> object to measure diversity with the entropart package.
-</p>
-<h4>
-Usage
-</h4>
-<pre class="r"><code><div>"as.ProbaVector"(x, ...)</div></code></pre>
-<h4>
-Arguments
-</h4>
-<dl class="rd-dl">
-<dt>
-x
-</dt>
-<dd class="rd-dd">
-An object of class <code><a href=#patterns>pattern_matrix_individuals</a></code>.
-</dd>
-<dt>
-…
-</dt>
-<dd class="rd-dd">
-Further arguments. Unsused.
-</dd>
-</dl>
-<h4>
-Value
-</h4>
-<p class="rd-p">
-<dl>
-A <code><a href=http://www.rdocumentation.org/packages/entropart/topics/SpeciesDistribution>ProbaVector</a></code> object, which is a named integer vector.
-</dl>
-</p>
-</div>
-<div id="diversity.pattern_matrix_individuals" class="section level2">
-<h2>Diversity.pattern_matrix_individuals</h2>
-<a id="Diversity.pattern_matrix_individuals_alias"></a>
-<h3>
-HCDT diversity of a matrix of individuals
-</h3>
-<p class="rd-p">
-<code>Diversity</code> calls <code><a href='http://www.rdocumentation.org/packages/entropart/topics/Tsallis'>Tsallis</a></code> to calculate entropy and transforms it into diversity by calculating its deformed exponential.
-</p>
-<h4>
-Usage
-</h4>
-<pre class="r"><code><div>"Diversity"(NorP, q&nbsp;=&nbsp;1, Correction&nbsp;=&nbsp;"Best", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div></code></pre>
-<h4>
-Arguments
-</h4>
-<dl class="rd-dl">
 <dt>
 NorP
 </dt>
@@ -1140,58 +1087,13 @@ A number: the order of entropy. Some corrections allow only a positive number. D
 Correction
 </dt>
 <dd class="rd-dd">
-A string containing one of the possible corrections: <code>“None”</code> (no correction), <code>“ChaoShen”</code>, <code>“GenCov”</code>, <code>“Grassberger”</code>, <code>“Holste”</code>, <code>“Bonachela”</code>, <code>“ZhangGrabchak”</code>, or <code>“ChaoWangJost”</code>, <code>“Marcon”</code>, <code>“UnveilC”</code>, <code>“UnveiliC”</code>, <code>“UnveilJ”</code> or <code>“Best”</code>, the default value. Currently, <code>“Best”</code> is <code>“ChaoWangJost”</code>.
-</dd>
-<dt>
-…
-</dt>
-<dd class="rd-dd">
-Further arguments. Unsused.
+A string containing one of the possible corrections: <code>“None”</code> (no correction), and <code>“Best”</code> are always valid. See the generic function help for other posiibilities.
 </dd>
 <dt>
 CheckArguments
 </dt>
 <dd class="rd-dd">
 If <code>TRUE</code> (default), the function arguments are verified. Should be set to <code>FALSE</code> to save time in simulations for example, when the arguments have been checked elsewhere.
-</dd>
-</dl>
-<h4>
-Value
-</h4>
-<p class="rd-p">
-<dl>
-A named number equal to the calculated diversity. The name is that of the bias correction used.
-</dl>
-</p>
-</div>
-<div id="richness.pattern_matrix_individuals" class="section level2">
-<h2>Richness.pattern_matrix_individuals</h2>
-<a id="Richness.pattern_matrix_individuals_alias"></a>
-<h3>
-Richness of a matrix of individuals
-</h3>
-<p class="rd-p">
-<code>Richness</code> is the number of species.
-</p>
-<h4>
-Usage
-</h4>
-<pre class="r"><code><div>"Richness"(NorP, Correction&nbsp;=&nbsp;"Chao1", Alpha&nbsp;=&nbsp;0.05, JackOver&nbsp;=&nbsp;FALSE, ..., CheckArguments&nbsp;=&nbsp;TRUE)</div></code></pre>
-<h4>
-Arguments
-</h4>
-<dl class="rd-dl">
-<dt>
-NorP
-</dt>
-<dd class="rd-dd">
-An object of class “wmppp” (<code><a href=#patterns>pattern_matrix_individuals</a></code>).
-</dd>
-<dt>
-Correction
-</dt>
-<dd class="rd-dd">
-A string containing one of the possible corrections: <code>“None”</code> (no correction), <code>“Jackknife”</code>, <code>“iChao1”</code>, or <code>“Chao1”</code>, the default value.
 </dd>
 <dt>
 Alpha
@@ -1205,192 +1107,41 @@ JackOver
 <dd class="rd-dd">
 If <code>TRUE</code>, retain the jackknife order immediately superior to the optimal one, usually resulting in the overestimation of the number of species. Default is <code>FALSE</code>.
 </dd>
-<dt>
-…
-</dt>
-<dd class="rd-dd">
-Further arguments. Unsused.
-</dd>
-<dt>
-CheckArguments
-</dt>
-<dd class="rd-dd">
-If <code>TRUE</code> (default), the function arguments are verified. Should be set to <code>FALSE</code> to save time in simulations for example, when the arguments have been checked elsewhere.
-</dd>
 </dl>
 <h4>
-Value
+Examples
 </h4>
-<p class="rd-p">
-<dl>
-A named number equal to the calculated diversity. The name is that of the bias correction used.
-</dl>
-</p>
-</div>
-<div id="shannon.pattern_matrix_individuals" class="section level2">
-<h2>Shannon.pattern_matrix_individuals</h2>
-<a id="Shannon.pattern_matrix_individuals_alias"></a>
-<h3>
-Shannon’s Entropy of a matrix of individuals
-</h3>
-<p class="rd-p">
-Calculates the Shannon entropy of a <code><a href='patterns.html'>pattern_matrix_individuals</a></code> object.
-</p>
-<h4>
-Usage
-</h4>
-<pre class="r"><code><div>"Shannon"(NorP, Correction&nbsp;=&nbsp;"Best", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div></code></pre>
-<h4>
-Arguments
-</h4>
-<dl class="rd-dl">
-<dt>
-NorP
-</dt>
-<dd class="rd-dd">
-An object of class “wmppp” (<code><a href=#patterns>pattern_matrix_individuals</a></code>).
-</dd>
-<dt>
-Correction
-</dt>
-<dd class="rd-dd">
-A string containing one of the possible corrections: see <code><a href=http://www.rdocumentation.org/packages/entropart/topics/Shannon>Shannon</a></code>.
-</dd>
-<dt>
-…
-</dt>
-<dd class="rd-dd">
-Further arguments. Unsused.
-</dd>
-<dt>
-CheckArguments
-</dt>
-<dd class="rd-dd">
-If <code>TRUE</code> (default), the function arguments are verified. Should be set to <code>FALSE</code> to save time in simulations for example, when the arguments have been checked elsewhere.
-</dd>
-</dl>
-<h4>
-Value
-</h4>
-<p class="rd-p">
-<dl>
-A named number equal to the calculated entropy. The name is that of the bias correction used.
-</dl>
-</p>
-</div>
-<div id="simpson.pattern_matrix_individuals" class="section level2">
-<h2>Simpson.pattern_matrix_individuals</h2>
-<a id="Simpson.pattern_matrix_individuals_alias"></a>
-<h3>
-Simpson Entropy of a matrix of individuals
-</h3>
-<p class="rd-p">
-Calculates the Simpson entropy of a <code><a href='patterns.html'>pattern_matrix_individuals</a></code> object.
-</p>
-<h4>
-Usage
-</h4>
-<pre class="r"><code><div>"Simpson"(NorP, Correction&nbsp;=&nbsp;"Lande", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div></code></pre>
-<h4>
-Arguments
-</h4>
-<dl class="rd-dl">
-<dt>
-NorP
-</dt>
-<dd class="rd-dd">
-An object of class “wmppp” (<code><a href=#patterns>pattern_matrix_individuals</a></code>).
-</dd>
-<dt>
-Correction
-</dt>
-<dd class="rd-dd">
-A string containing one of the possible corrections: see <code><a href=http://www.rdocumentation.org/packages/entropart/topics/Simpson>Simpson</a></code>.
-</dd>
-<dt>
-…
-</dt>
-<dd class="rd-dd">
-Further arguments. Unsused.
-</dd>
-<dt>
-CheckArguments
-</dt>
-<dd class="rd-dd">
-If <code>TRUE</code> (default), the function arguments are verified. Should be set to <code>FALSE</code> to save time in simulations for example, when the arguments have been checked elsewhere.
-</dd>
-</dl>
-<h4>
-Value
-</h4>
-<p class="rd-p">
-<dl>
-A named number equal to the calculated entropy. The name is that of the bias correction used.
-</dl>
-</p>
-</div>
-<div id="tsallis.pattern_matrix_individuals" class="section level2">
-<h2>Tsallis.pattern_matrix_individuals</h2>
-<a id="Tsallis.pattern_matrix_individuals_alias"></a>
-<h3>
-Tsallis (HCDT) Entropy of a matrix of individuals
-</h3>
-<p class="rd-p">
-Calculates the HCDT, also known as Tsallis entropy of order <span class="math inline"><em>q</em></span> of a <code><a href='patterns.html'>pattern_matrix_individuals</a></code> object.
-</p>
-<h4>
-Usage
-</h4>
-<pre class="r"><code><div>"Tsallis"(NorP, q&nbsp;=&nbsp;1, Correction&nbsp;=&nbsp;"Best", ..., CheckArguments&nbsp;=&nbsp;TRUE)</div></code></pre>
-<h4>
-Arguments
-</h4>
-<dl class="rd-dl">
-<dt>
-NorP
-</dt>
-<dd class="rd-dd">
-An object of class “wmppp” (<code><a href=#patterns>pattern_matrix_individuals</a></code>).
-</dd>
-<dt>
-q
-</dt>
-<dd class="rd-dd">
-A number: the order of entropy. Some corrections allow only a positive number. Default is 1 for Shannon entropy.
-</dd>
-<dt>
-Correction
-</dt>
-<dd class="rd-dd">
-A string containing one of the possible corrections: <code>“None”</code> (no correction), <code>“ChaoShen”</code>, <code>“GenCov”</code>, <code>“Grassberger”</code>, <code>“Holste”</code>, <code>“Bonachela”</code>, <code>“ZhangGrabchak”</code>, or <code>“ChaoWangJost”</code>, <code>“Marcon”</code>, <code>“UnveilC”</code>, <code>“UnveiliC”</code>, <code>“UnveilJ”</code> or <code>“Best”</code>, the default value. Currently, <code>“Best”</code> is <code>“ChaoWangJost”</code>.
-</dd>
-<dt>
-…
-</dt>
-<dd class="rd-dd">
-Further arguments. Unsused.
-</dd>
-<dt>
-CheckArguments
-</dt>
-<dd class="rd-dd">
-If <code>TRUE</code> (default), the function arguments are verified. Should be set to <code>FALSE</code> to save time in simulations for example, when the arguments have been checked elsewhere.
-</dd>
-</dl>
-<h4>
-Value
-</h4>
-<p class="rd-p">
-<dl>
-A named number equal to the calculated entropy. The name is that of the bias correction used.
-</dl>
-</p>
-<h4>
-Details
-</h4>
-<p class="rd-p">
-Tsallis (Havrda and Charvat, 1967; Daroczy, 1970; Tsallis, 1988) generalized entropy is a generalized measure of diversity (Jost, 2006). See <code><a href=http://www.rdocumentation.org/packages/entropart/topics/Tsallis>Tsallis</a></code> for more details.
-</p>
+<pre class="r"><code># A community matrix drift model
+myModel &lt;- cm_drift$new(pattern_matrix_individuals(S=10))
+myModel$autoplot()</code></pre>
+<p><img src="rd_files/figure-html/entropart_id_11,%20TRUE-1.png" width="624" /></p>
+<pre class="r"><code>as.AbdVector(myModel$pattern)</code></pre>
+<pre><code>##  1  2  3  4  5  6  7  8  9 10 
+##  6  2  1  2  7  8 12  8 16  2 
+## attr(,&quot;class&quot;)
+## [1] &quot;AbdVector&quot;           &quot;SpeciesDistribution&quot; &quot;array&quot;</code></pre>
+<pre class="r"><code>as.ProbaVector(myModel$pattern)</code></pre>
+<pre><code>##        1        2        3        4        5        6        7        8 
+## 0.093750 0.031250 0.015625 0.031250 0.109375 0.125000 0.187500 0.125000 
+##        9       10 
+## 0.250000 0.031250 
+## attr(,&quot;class&quot;)
+## [1] &quot;ProbaVector&quot;         &quot;SpeciesDistribution&quot; &quot;array&quot;</code></pre>
+<pre class="r"><code>Tsallis(myModel$pattern)</code></pre>
+<pre><code>##  UnveilJ 
+## 2.079647</code></pre>
+<pre class="r"><code>Diversity(myModel$pattern)</code></pre>
+<pre><code>##  UnveilJ 
+## 8.001647</code></pre>
+<pre class="r"><code>Richness(myModel$pattern)</code></pre>
+<pre><code>##    Chao1 
+## 10.16406</code></pre>
+<pre class="r"><code>Shannon(myModel$pattern)</code></pre>
+<pre><code>##  UnveilJ 
+## 2.079647</code></pre>
+<pre class="r"><code>Simpson(myModel$pattern)</code></pre>
+<pre><code>##     Lande 
+## 0.8606151</code></pre>
 </div>
 </div>
 

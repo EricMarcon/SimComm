@@ -7,8 +7,8 @@ Authors@R: c(
   person("Alain", "Rousteau", email="alain.rousteau@univ-antilles.fr", role=c("aut"))
   )
 Description: Simulation of communities.
-Depends: R6
-Imports: animation, grDevices, spatstat, SpatDiv, ggplot2, entropart, dbmss
+Depends: R6, entropart, ggplot2
+Imports: animation, grDevices, spatstat, SpatDiv, dbmss
 Suggests: testthat, packagedocs
 License: GPL-3
 Encoding: UTF-8

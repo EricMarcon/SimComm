@@ -39,10 +39,4 @@ sections:
 -
   section_name: entropart methods
   topics:
-    - as.AbdVector.pattern_matrix_individuals
-    - as.ProbaVector.pattern_matrix_individuals
-    - Diversity.pattern_matrix_individuals
-    - Richness.pattern_matrix_individuals
-    - Shannon.pattern_matrix_individuals
-    - Simpson.pattern_matrix_individuals
-    - Tsallis.pattern_matrix_individuals
+    - entropart
