@@ -35,7 +35,7 @@ Install the package for _R_ from Github.
 
 ```{r install, eval=FALSE}
 library("devtools")
-devtools::install_gitub("EricMarcon/SimComm")
+devtools::install_github("EricMarcon/SimComm")
 ```
 
 

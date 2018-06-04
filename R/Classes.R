@@ -262,11 +262,12 @@ community_matrixmodel <- R6Class("community_matrixmodel",
       } else {
         dimnames(the_pattern) <- list(seq(nrow(the_pattern)), seq(ncol(the_pattern)))
         the_df <- as.data.frame.table(the_pattern)
-        names(the_df) <- c("x", "y", self$type)
+        names(the_df) <- c("x", "y", "z")
         the_plot <- ggplot2::ggplot(data=the_df, ggplot2::aes_(x=~x, y=~y)) +
-          ggplot2::geom_tile(ggplot2::aes_(fill=~Species), col="black") +
+          ggplot2::geom_tile(ggplot2::aes_(fill=~z), col="black") +
           ggplot2::theme(panel.grid = ggplot2::element_line()) +
-          ggplot2::coord_fixed()
+          ggplot2::coord_fixed() +
+          ggplot2::labs(fill=self$type)
         return(the_plot)
       }
     }

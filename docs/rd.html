@@ -131,7 +131,7 @@ animation, grDevices, spatstat, SpatDiv, dbmss
 Suggests
 </h4>
 <p>
-testthat, packagedocs
+magrittr, packagedocs, testthat
 </p>
 <div id="package-description" class="section level1">
 <h1>Package description</h1>
@@ -199,6 +199,14 @@ The pattern which describes the location of agents.
 </p>
 <p class="rd-p">
 <dt>
+<code>type</code>
+</dt>
+<dd>
+The type of individuals. Informational only.
+</dd>
+</p>
+<p class="rd-p">
+<dt>
 <code>timeline</code>
 </dt>
 <dd>
@@ -234,7 +242,7 @@ Public Methods
 </p>
 <p class="rd-p">
 <dt>
-<code>initialize(pattern = NULL, timeline = 0)</code>
+<code>initialize(pattern = NULL, timeline = 0, type = “Species”)</code>
 </dt>
 <dd>
 Initialization.
@@ -242,7 +250,7 @@ Initialization.
 </p>
 <p class="rd-p">
 <dt>
-<code>plot(…, time=NULL, sleep=animation::ani.options(“interval”))</code>
+<code>plot(time=NULL, sleep=animation::ani.options(“interval”), …)</code>
 </dt>
 <dd>
 Default plot method: plots the pattern.
@@ -250,7 +258,7 @@ Default plot method: plots the pattern.
 </p>
 <p class="rd-p">
 <dt>
-<code>autoplot(…, time=NULL)</code>
+<code>autoplot(time=NULL, …)</code>
 </dt>
 <dd>
 Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggplot>ggplot</a></code> of the pattern.
@@ -258,7 +266,7 @@ Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggpl
 </p>
 <p class="rd-p">
 <dt>
-<code>run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)</code>
+<code>run(animate = FALSE, sleep = animation::ani.options(“interval”), save = FALSE, more_time = NULL)</code>
 </dt>
 <dd>
 Run the model.
@@ -347,7 +355,7 @@ Public Methods
 </p>
 <p class="rd-p">
 <dt>
-<code>initialize(pattern = NULL, timeline = 0)</code>
+<code>initialize(pattern = NULL, timeline = 0, type = “Species”)</code>
 </dt>
 <dd>
 Initialization.
@@ -355,7 +363,7 @@ Initialization.
 </p>
 <p class="rd-p">
 <dt>
-<code>plot(…, time=NULL, sleep=animation::ani.options(“interval”))</code>
+<code>plot(time=NULL, sleep=animation::ani.options(“interval”), …)</code>
 </dt>
 <dd>
 Default plot method: plots the pattern.
@@ -363,7 +371,7 @@ Default plot method: plots the pattern.
 </p>
 <p class="rd-p">
 <dt>
-<code>autoplot(…, time=NULL)</code>
+<code>autoplot(time=NULL, …)</code>
 </dt>
 <dd>
 Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggplot>ggplot</a></code> of the pattern.
@@ -371,7 +379,7 @@ Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggpl
 </p>
 <p class="rd-p">
 <dt>
-<code>run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)</code>
+<code>run(animate = FALSE, sleep = animation::ani.options(“interval”), save = FALSE, more_time = NULL)</code>
 </dt>
 <dd>
 Run the model.
@@ -436,7 +444,7 @@ Public Methods
 </p>
 <p class="rd-p">
 <dt>
-<code>initialize(pattern = NULL, timeline = 0)</code>
+<code>initialize(pattern = NULL, timeline = 0, type = “Species”)</code>
 </dt>
 <dd>
 Initialization.
@@ -444,7 +452,7 @@ Initialization.
 </p>
 <p class="rd-p">
 <dt>
-<code>plot(…, time=NULL, sleep=animation::ani.options(“interval”))</code>
+<code>plot(time=NULL, sleep=animation::ani.options(“interval”), …)</code>
 </dt>
 <dd>
 Default plot method: plots the pattern.
@@ -452,7 +460,7 @@ Default plot method: plots the pattern.
 </p>
 <p class="rd-p">
 <dt>
-<code>autoplot(…, time=NULL)</code>
+<code>autoplot(time=NULL, …)</code>
 </dt>
 <dd>
 Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggplot>ggplot</a></code> of the pattern.
@@ -460,7 +468,7 @@ Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggpl
 </p>
 <p class="rd-p">
 <dt>
-<code>run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)</code>
+<code>run(animate = FALSE, sleep = animation::ani.options(“interval”), save = FALSE, more_time = NULL)</code>
 </dt>
 <dd>
 Run the model.
@@ -547,7 +555,7 @@ Public Methods
 </p>
 <p class="rd-p">
 <dt>
-<code>initialize(pattern = NULL, timeline = 0)</code>
+<code>initialize(pattern = NULL, timeline = 0, type = “Species”)</code>
 </dt>
 <dd>
 Initialization.
@@ -555,7 +563,7 @@ Initialization.
 </p>
 <p class="rd-p">
 <dt>
-<code>plot(…, time=NULL, sleep=animation::ani.options(“interval”))</code>
+<code>plot(time=NULL, sleep=animation::ani.options(“interval”), …)</code>
 </dt>
 <dd>
 Default plot method: plots the pattern.
@@ -563,7 +571,7 @@ Default plot method: plots the pattern.
 </p>
 <p class="rd-p">
 <dt>
-<code>autoplot(…, time=NULL)</code>
+<code>autoplot(time=NULL, …)</code>
 </dt>
 <dd>
 Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggplot>ggplot</a></code> of the pattern.
@@ -571,7 +579,7 @@ Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggpl
 </p>
 <p class="rd-p">
 <dt>
-<code>run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)</code>
+<code>run(animate = FALSE, sleep = animation::ani.options(“interval”), save = FALSE, more_time = NULL)</code>
 </dt>
 <dd>
 Run the model.
@@ -669,7 +677,7 @@ Public Methods
 </p>
 <p class="rd-p">
 <dt>
-<code>initialize(pattern = NULL, timeline = 0)</code>
+<code>initialize(pattern = NULL, timeline = 0, type = “Species”)</code>
 </dt>
 <dd>
 Initialization.
@@ -677,7 +685,7 @@ Initialization.
 </p>
 <p class="rd-p">
 <dt>
-<code>plot(…, time=NULL, sleep=animation::ani.options(“interval”))</code>
+<code>plot(time=NULL, sleep=animation::ani.options(“interval”), …)</code>
 </dt>
 <dd>
 Default plot method: plots the pattern.
@@ -685,7 +693,7 @@ Default plot method: plots the pattern.
 </p>
 <p class="rd-p">
 <dt>
-<code>autoplot(…, time=NULL)</code>
+<code>autoplot(time=NULL, …)</code>
 </dt>
 <dd>
 Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggplot>ggplot</a></code> of the pattern.
@@ -693,7 +701,7 @@ Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggpl
 </p>
 <p class="rd-p">
 <dt>
-<code>run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)</code>
+<code>run(animate = FALSE, sleep = animation::ani.options(“interval”), save = FALSE, more_time = NULL)</code>
 </dt>
 <dd>
 Run the model.
@@ -783,7 +791,7 @@ Public Methods
 </p>
 <p class="rd-p">
 <dt>
-<code>initialize(pattern = NULL, timeline = 0)</code>
+<code>initialize(pattern = NULL, timeline = 0, type = “Species”)</code>
 </dt>
 <dd>
 Initialization.
@@ -791,7 +799,7 @@ Initialization.
 </p>
 <p class="rd-p">
 <dt>
-<code>plot(…, time=NULL, sleep=animation::ani.options(“interval”))</code>
+<code>plot(time=NULL, sleep=animation::ani.options(“interval”), …)</code>
 </dt>
 <dd>
 Default plot method: plots the pattern.
@@ -799,7 +807,7 @@ Default plot method: plots the pattern.
 </p>
 <p class="rd-p">
 <dt>
-<code>autoplot(…, time=NULL)</code>
+<code>autoplot(time=NULL, …)</code>
 </dt>
 <dd>
 Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggplot>ggplot</a></code> of the pattern.
@@ -807,7 +815,7 @@ Makes a <code><a href=http://www.rdocumentation.org/packages/ggplot2/topics/ggpl
 </p>
 <p class="rd-p">
 <dt>
-<code>run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)</code>
+<code>run(animate = FALSE, sleep = animation::ani.options(“interval”), save = FALSE, more_time = NULL)</code>
 </dt>
 <dd>
 Run the model.
@@ -1117,31 +1125,31 @@ myModel$autoplot()</code></pre>
 <p><img src="rd_files/figure-html/entropart_id_11,%20TRUE-1.png" width="624" /></p>
 <pre class="r"><code>as.AbdVector(myModel$pattern)</code></pre>
 <pre><code>##  1  2  3  4  5  6  7  8  9 10 
-##  6  2  1  2  7  8 12  8 16  2 
+##  4  5  7  6  5 16  1  9  1 10 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;AbdVector&quot;           &quot;SpeciesDistribution&quot; &quot;array&quot;</code></pre>
 <pre class="r"><code>as.ProbaVector(myModel$pattern)</code></pre>
 <pre><code>##        1        2        3        4        5        6        7        8 
-## 0.093750 0.031250 0.015625 0.031250 0.109375 0.125000 0.187500 0.125000 
+## 0.062500 0.078125 0.109375 0.093750 0.078125 0.250000 0.015625 0.140625 
 ##        9       10 
-## 0.250000 0.031250 
+## 0.015625 0.156250 
 ## attr(,&quot;class&quot;)
 ## [1] &quot;ProbaVector&quot;         &quot;SpeciesDistribution&quot; &quot;array&quot;</code></pre>
 <pre class="r"><code>Tsallis(myModel$pattern)</code></pre>
 <pre><code>##  UnveilJ 
-## 2.079647</code></pre>
+## 2.173818</code></pre>
 <pre class="r"><code>Diversity(myModel$pattern)</code></pre>
 <pre><code>##  UnveilJ 
-## 8.001647</code></pre>
+## 8.791787</code></pre>
 <pre class="r"><code>Richness(myModel$pattern)</code></pre>
 <pre><code>##    Chao1 
-## 10.16406</code></pre>
+## 10.98438</code></pre>
 <pre class="r"><code>Shannon(myModel$pattern)</code></pre>
 <pre><code>##  UnveilJ 
-## 2.079647</code></pre>
+## 2.173818</code></pre>
 <pre class="r"><code>Simpson(myModel$pattern)</code></pre>
 <pre><code>##     Lande 
-## 0.8606151</code></pre>
+## 0.8695437</code></pre>
 </div>
 </div>
 
