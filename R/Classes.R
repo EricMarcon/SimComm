@@ -15,9 +15,9 @@
 #' @section Public Methods:
 #' \describe{
 #'   \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
-#'   \item{\code{plot(..., time=NULL, sleep=animation::ani.options("interval"))}}{Default plot method: plots the pattern.}
-#'   \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
-#'   \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
+#'   \item{\code{plot(time=NULL, sleep=animation::ani.options("interval"), ...)}}{Default plot method: plots the pattern.}
+#'   \item{\code{autoplot(time=NULL, ...)}}{Makes a \code{\link{ggplot}} of the pattern.}
+#'   \item{\code{run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)}}{Run the model.}
 #'   \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
 #'   \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
 #' }
@@ -79,7 +79,7 @@ community_model <- R6Class("community_model",
     },
 
     # plot method for the pattern. To be overridden.
-    plot = function(..., time=NULL, sleep=0) {
+    plot = function(time=NULL, sleep=animation::ani.options("interval"), ...) {
       # if sleep > 0, use the animation package for a fluid sequence of images
       if (sleep>0) grDevices::dev.hold()
       # Specific plot code to be overridden
@@ -89,7 +89,7 @@ community_model <- R6Class("community_model",
     },
 
     # ggplot method for the pattern. To be overridden.
-    autoplot = function(..., time=NULL) {
+    autoplot = function(time=NULL, ...) {
       # get the pattern to plot
       the_pattern <- self$saved_pattern(time)
       # Prepare a dataframe for ggplot and plot. To be overridden
@@ -249,13 +249,13 @@ community_matrixmodel <- R6Class("community_matrixmodel",
   public = list(
     #cols = NULL,
 
-    plot = function(..., time = NULL, sleep=0) {
+    plot = function(time = NULL, sleep=0, ...) {
       if (sleep>0) grDevices::dev.hold()
       graphics::image(x=1:ncol(self$pattern), y=1:nrow(self$pattern), z=self$saved_pattern(time), xlab="", ylab="", axes=FALSE, asp=1, ...)
       if (sleep>0) animation::ani.pause(sleep)
     },
 
-    autoplot = function(...) {
+    autoplot = function(time = NULL, ...) {
       the_pattern <- self$saved_pattern(time)
       if(is.null(the_pattern)) {
         invisible(NULL)

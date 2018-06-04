@@ -27,10 +27,10 @@ At each generation, each individual is replaced by one of its neghbors.
 \section{Public Methods}{
 
 \describe{
-  \item{\code{initialize(pattern = NULL, timeline = 0)}}{Initialization.}
-  \item{\code{plot(..., time=NULL, sleep=animation::ani.options("interval"))}}{Default plot method: plots the pattern.}
-  \item{\code{autoplot(..., time=NULL)}}{Makes a \code{\link{ggplot}} of the pattern.}
-  \item{\code{run(animate = FALSE, sleep = 0, save = FALSE, more_time = NULL)}}{Run the model.}
+  \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
+  \item{\code{plot(time=NULL, sleep=animation::ani.options("interval"), ...)}}{Default plot method: plots the pattern.}
+  \item{\code{autoplot(time=NULL, ...)}}{Makes a \code{\link{ggplot}} of the pattern.}
+  \item{\code{run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)}}{Run the model.}
   \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
   \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
 }

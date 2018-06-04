@@ -1,2 +1,12 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\_sgbak$
+^\.hg$
+\.synctex\.gz$
+\.tex$
+\.log$
+\.blg$
+\.bbl$
+^\.travis\.yml$
+docs/
+^_gh-pages$
