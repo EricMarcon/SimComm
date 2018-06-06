@@ -2,7 +2,7 @@
 #'
 #' The location of the agents of a model is described by a pattern.
 #' Several patterns are available by default.
-#' They may be point patterns (of class \code{\link{ppp}}). Regular point patterns are called grids.
+#' They may be point patterns (of class \code{\link[spatstat]{ppp}}). Regular point patterns are called grids.
 #' They may also be matrices with no explicit coordinates by only notions of neighborhood. Matrix models are by far faster to run.
 #' Patterns are to be used in the \code{pattern} field of a \code{\link{community_model}}.
 #'
@@ -11,8 +11,8 @@
 #'   \item{\code{pattern_grid}}{A rectangular, regular grid of points. Each point has marks. Point are on a regular grid of 1x1 units of distance.}
 #'   \item{\code{pattern_matrix_individuals}}{A matrix. Each cell of the matrix is an agent and has a numeric value equal to its type.}
 #'   \item{\code{pattern_matrix_logical}}{A matrix. Each cell of the matrix is \code{FALSE} or \code{TRUE} (dead or alive, present or absent...).}
-#'   \item{\code{pm_Conway_blinker}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns}{Conway's game of life}. Three cells are alive. The pattern is designed to oscillate.}
-#'   \item{\code{pm_Conway_glider}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns}{Conway's game of life}. The pattern is designed to move.}
+#'   \item{\code{pm_Conway_blinker}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns}{Conway's game of life}. Three cells are alive. The pattern is designed to oscillate.}
+#'   \item{\code{pm_Conway_glider}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns}{Conway's game of life}. The pattern is designed to move.}
 #' }
 #'
 #'
@@ -24,7 +24,6 @@
 #' @param prob The proportion of ressources taken by successive species in the geometric model.
 #' @param alpha Fisher's alpha in the log-series model.
 #' @name patterns
-#' @return \code{evolve} methods should modifiy the model's pattern directly and return \code{NULL}.
 NULL
 
 

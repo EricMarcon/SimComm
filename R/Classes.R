@@ -216,6 +216,24 @@ community_gridmodel <- R6Class("community_gridmodel",
 community_matrixmodel <- R6Class("community_matrixmodel",
   inherit = community_model,
   private = list(
+    # The pattern with a buffer
+    buffered_pattern = NULL,
+
+    # Prepare buffered_pattern at each step of evolution
+    prepare_buffer = function() {
+      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4" |
+         self$neighborhood == "Moore 1" | self$neighborhood == "8") {
+        # Add the buffer zone of width 1
+        private$buffered_pattern <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
+        private$buffered_pattern <- rbind(private$buffered_pattern[nrow(private$buffered_pattern), ], private$buffered_pattern, private$buffered_pattern[1, ])
+      }
+      if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
+        # Add the buffer zone of width 2
+        private$buffered_pattern <- cbind(self$pattern[, (ncol(self$pattern)-1):ncol(self$pattern)], self$pattern, self$pattern[, 1:2])
+        private$buffered_pattern <- rbind(private$buffered_pattern[(nrow(private$buffered_pattern)-1):nrow(private$buffered_pattern), ], private$buffered_pattern, private$buffered_pattern[1:2, ])
+      }
+    },
+
     pattern_by_index = function(i) {
       return(t(self$run_patterns[, , i]))
     },
@@ -248,6 +266,21 @@ community_matrixmodel <- R6Class("community_matrixmodel",
   ),
   public = list(
     #cols = NULL,
+    neighborhood = NULL,
+
+    # Return the vector of neighbors of a cell
+    neighbors = function(row, col) {
+      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4") {
+        neighbors <- c(private$buffered_pattern[row, col+1], private$buffered_pattern[row+2, col+1], private$buffered_pattern[row+1, col], private$buffered_pattern[row+1, col+2])
+      }
+      if(self$neighborhood == "Moore 1" | self$neighborhood == "8") {
+        neighbors <- as.vector(private$buffered_pattern[row:(row+2), (col):(col+2)])[-5]
+      }
+      if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
+        neighbors <- as.vector(private$buffered_pattern[row:row+4, col:(col+4)])[-13]
+      }
+      return(neighbors)
+    },
 
     plot = function(time = NULL, sleep=0, ...) {
       if (sleep>0) grDevices::dev.hold()

@@ -17,48 +17,16 @@ cm_drift <- R6Class("cm_drift",
   inherit = community_matrixmodel,
   private = list(
     evolve =  function(time, save) {
-      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4") {
-        # Add the buffer zone
-        buffered <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
-        buffered <- rbind(buffered[nrow(buffered), ], buffered, buffered[1, ])
-        # Draw a neighbor
-        for(row in 2:(nrow(buffered)-1)) {
-          for(col in 2:(ncol(buffered)-1)) {
-            # Find the neighbors
-            neighbors <- c(buffered[row-1, col], buffered[row+1, col], buffered[row, col-1], buffered[row, col+1])
-            # Draw one
-            self$pattern[row-1, col-1] <- sample(neighbors, size=1)
-          }
+      # Prepare the buffer
+      private$prepare_buffer()
+
+      # Draw a neighbor
+      for(row in seq(nrow(self$pattern))) {
+        for(col in seq(ncol(self$pattern))) {
+          self$pattern[row, col] <- sample(self$neighbors(row, col), size=1)
         }
       }
-      if(self$neighborhood == "Moore 1" | self$neighborhood == "8") {
-        # Add the buffer zone
-        buffered <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
-        buffered <- rbind(buffered[nrow(buffered), ], buffered, buffered[1, ])
-        # Draw a neighbor
-        for(row in 2:(nrow(buffered)-1)) {
-          for(col in 2:(ncol(buffered)-1)) {
-            # Find the neighbors
-            neighbors <- as.vector(buffered[(row-1):(row+1), (col-1):(col+1)])[-5]
-            # Draw one
-            self$pattern[row-1, col-1] <- sample(neighbors, size=1)
-          }
-        }
-      }
-      if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
-        # Add the buffer zone
-        buffered <- cbind(self$pattern[, (ncol(self$pattern)-1):ncol(self$pattern)], self$pattern, self$pattern[, 1:2])
-        buffered <- rbind(buffered[(nrow(buffered)-1):nrow(buffered), ], buffered, buffered[1:2, ])
-        # Draw a neighbor
-        for(row in 3:(nrow(buffered)-2)) {
-          for(col in 3:(ncol(buffered)-2)) {
-            # Find the neighbors
-            neighbors <- as.vector(buffered[(row-2):(row+2), (col-2):(col+2)])[-13]
-            # Draw one
-            self$pattern[row-2, col-2] <- sample(neighbors, size=1)
-          }
-        }
-      }
+
       if(save) {
         # Save the new pattern
         self$run_patterns[, , which(self$timeline == time)] <- self$pattern
@@ -66,7 +34,6 @@ cm_drift <- R6Class("cm_drift",
     }
   ),
   public = list(
-    neighborhood = NULL,
     # palette = "PuOr",
 
     initialize = function(pattern = pattern_matrix_individuals(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
@@ -104,48 +71,19 @@ cm_Conway <- R6Class("cm_Conway",
   inherit = community_matrixmodel,
   private = list(
     evolve =  function(time, save) {
-      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4") {
-        # Add the buffer zone
-        buffered <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
-        buffered <- rbind(buffered[nrow(buffered), ], buffered, buffered[1, ])
-        # Draw a neighbor
-        for(row in 2:(nrow(buffered)-1)) {
-          for(col in 2:(ncol(buffered)-1)) {
-            # Count the neighbors
-            n_neighbors <- sum(c(buffered[row-1, col], buffered[row+1, col], buffered[row, col-1], buffered[row, col+1]))
-            # Apply the rule
-            self$pattern[row-1, col-1] <- (self$pattern[row-1, col-1] & (n_neighbors %in% self$to_survive)) | (!self$pattern[row-1, col-1] & (n_neighbors %in% self$to_generate))
-          }
+      # Prepare the buffer
+      private$prepare_buffer()
+
+      # Change cells
+      for(row in seq(nrow(self$pattern))) {
+        for(col in seq(ncol(self$pattern))) {
+          # Count the neighbors
+          n_neighbors <- sum(self$neighbors(row, col))
+          # Apply the rule
+          self$pattern[row, col] <- (self$pattern[row, col] & (n_neighbors %in% self$to_survive)) | (!self$pattern[row, col] & (n_neighbors %in% self$to_generate))
         }
       }
-      if(self$neighborhood == "Moore 1" | self$neighborhood == "8") {
-        # Add the buffer zone
-        buffered <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
-        buffered <- rbind(buffered[nrow(buffered), ], buffered, buffered[1, ])
-        # Draw a neighbor
-        for(row in 2:(nrow(buffered)-1)) {
-          for(col in 2:(ncol(buffered)-1)) {
-            # Count the neighbors
-            n_neighbors <- sum((buffered[(row-1):(row+1), (col-1):(col+1)])[-5])
-            # Apply the rule
-            self$pattern[row-1, col-1] <- (self$pattern[row-1, col-1] & (n_neighbors %in% self$to_survive)) | (!self$pattern[row-1, col-1] & (n_neighbors %in% self$to_generate))
-          }
-        }
-      }
-      if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
-        # Add the buffer zone
-        buffered <- cbind(self$pattern[, (ncol(self$pattern)-1):ncol(self$pattern)], self$pattern, self$pattern[, 1:2])
-        buffered <- rbind(buffered[(nrow(buffered)-1):nrow(buffered), ], buffered, buffered[1:2, ])
-        # Draw a neighbor
-        for(row in 3:(nrow(buffered)-2)) {
-          for(col in 3:(ncol(buffered)-2)) {
-            # Count the neighbors
-            n_neighbors <- sum((buffered[(row-2):(row+2), (col-2):(col+2)])[-13])
-            # Draw one
-            self$pattern[row-2, col-2] <- (self$pattern[row-2, col-2] & (n_neighbors %in% self$to_survive)) | (!self$pattern[row-2, col-2] & (n_neighbors %in% self$to_generate))
-          }
-        }
-      }
+
       if(save) {
         # Save the new pattern
         self$run_patterns[, , which(self$timeline == time)] <- self$pattern
@@ -153,7 +91,6 @@ cm_Conway <- R6Class("cm_Conway",
     }
   ),
   public = list(
-    neighborhood = NULL,
     to_survive = c(2, 3),
     to_generate = 3,
 
