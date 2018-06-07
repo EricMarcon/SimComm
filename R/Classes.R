@@ -12,6 +12,10 @@
 #' @field timeline A numeric vector.
 #' @field last_time The last time (in the time line) the model has been run.
 #' @field run_patterns The past patterns of the model, obtained by \code{run} and saved.
+#' @field neighborhood A character string defining what is the neighborhood of a cell:
+#' "von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+#' "Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+#' "Moore 2" or "24" for two rings of neighbors.
 #' @section Public Methods:
 #' \describe{
 #'   \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
@@ -134,7 +138,7 @@ community_model <- R6Class("community_model",
         if(is.null(self$pattern)) {
           return(NULL)
         } else {
-          the_pattern <- t(self$pattern)
+          the_pattern <- self$pattern
         }
       } else {
         if(is.null(self$run_patterns)) {
@@ -181,22 +185,46 @@ community_gridmodel <- R6Class("community_gridmodel",
   inherit = community_model,
   public = list(
     tess = NULL,
+    neighborhood = NULL,
 
-    initialize = function(pattern = pattern_grid(), timeline = 0, type = "Species") {
+    initialize = function(pattern = pattern_grid(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
       super$initialize(pattern=pattern, timeline=timeline)
       self$tess <- spatstat::dirichlet(self$pattern)
       self$type <- type
+      if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
+        self$neighborhood <- neighborhood
+      } else {
+        self$neighborhood <- "von Neumann 1"
+        warning("The neighborhood definition was not recognized: set to the default value.")
+      }
+      # Colors for plot()
+      # self$cols <- grDevices::rainbow(max(pattern))
     },
 
-    plot = function(..., which="PointType") {
+    neighbors = function(point) {
+      dx <- as.integer(round(abs(self$pattern$x[point] - self$pattern$x)))
+      dy <- as.integer(round(abs(self$pattern$y[point] - self$pattern$y)))
+      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4")
+        the_neighbors <- which(((dx==1L | dx==self$pattern$window$xrange[2]-1L) & (dy==0L)) |
+                                 (dy==1L | dy==self$pattern$window$yrange[2]-1L) & (dx==0L))
+      if(self$neighborhood == "Moore 1" | self$neighborhood == "8")
+        the_neighbors <- which((dx<=1L | dx==self$pattern$window$xrange[2]-1L) &
+                                 (dy<=1L | dy==self$pattern$window$yrange[2]-1L) & !(dx==0L & dy==0L))
+      if(self$neighborhood == "Moore 2" | self$neighborhood == "24")
+        the_neighbors <- which((dx<=2L | dx>=self$pattern$window$xrange[2]-2L) &
+                                 (dy<=2L | dy>=self$pattern$window$yrange[2]-2L) & !(dx==0L & dy==0L))
+      return(the_neighbors)
+    },
+
+    plot = function(time = NULL, sleep=0, which="PointType", ...) {
       # if sleep > 0, use the animation package for a fluid sequence of images
       if (sleep>0) grDevices::dev.hold()
       # Plot
       if (which == "PointType") {
-        spatstat::marks(self$tess) <- self$pattern$marks$PointType
+        spatstat::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
         plot(self$tess, do.col=TRUE, ...)
       } else {
-        plot(self$pattern, ..., which=which)
+        plot(self$saved_pattern(time), which=which, ...)
       }
       # Animation
       if (sleep>0) animation::ani.pause(sleep)
@@ -219,23 +247,8 @@ community_matrixmodel <- R6Class("community_matrixmodel",
     # The pattern with a buffer
     buffered_pattern = NULL,
 
-    # Prepare buffered_pattern at each step of evolution
-    prepare_buffer = function() {
-      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4" |
-         self$neighborhood == "Moore 1" | self$neighborhood == "8") {
-        # Add the buffer zone of width 1
-        private$buffered_pattern <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
-        private$buffered_pattern <- rbind(private$buffered_pattern[nrow(private$buffered_pattern), ], private$buffered_pattern, private$buffered_pattern[1, ])
-      }
-      if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
-        # Add the buffer zone of width 2
-        private$buffered_pattern <- cbind(self$pattern[, (ncol(self$pattern)-1):ncol(self$pattern)], self$pattern, self$pattern[, 1:2])
-        private$buffered_pattern <- rbind(private$buffered_pattern[(nrow(private$buffered_pattern)-1):nrow(private$buffered_pattern), ], private$buffered_pattern, private$buffered_pattern[1:2, ])
-      }
-    },
-
     pattern_by_index = function(i) {
-      return(t(self$run_patterns[, , i]))
+      return(self$run_patterns[, , i])
     },
 
     prepare_to_save = function(save, more_time) {
@@ -268,28 +281,55 @@ community_matrixmodel <- R6Class("community_matrixmodel",
     #cols = NULL,
     neighborhood = NULL,
 
+    initialize = function(pattern = pattern_matrix_individuals(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
+      super$initialize(pattern=pattern, timeline=timeline, type=type)
+      if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
+        self$neighborhood <- neighborhood
+      } else {
+        self$neighborhood <- "von Neumann 1"
+        warning("The neighborhood definition was not recognized: set to the default value.")
+      }
+      # Colors for plot()
+      # self$cols <- grDevices::rainbow(max(pattern))
+    },
+
+    # Prepare buffered_pattern at each step of evolution
+    prepare_buffer = function() {
+      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4" |
+         self$neighborhood == "Moore 1" | self$neighborhood == "8") {
+        # Add the buffer zone of width 1
+        private$buffered_pattern <- cbind(self$pattern[, ncol(self$pattern)], self$pattern, self$pattern[, 1])
+        private$buffered_pattern <- rbind(private$buffered_pattern[nrow(private$buffered_pattern), ], private$buffered_pattern, private$buffered_pattern[1, ])
+      }
+      if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
+        # Add the buffer zone of width 2
+        private$buffered_pattern <- cbind(self$pattern[, (ncol(self$pattern)-1):ncol(self$pattern)], self$pattern, self$pattern[, 1:2])
+        private$buffered_pattern <- rbind(private$buffered_pattern[(nrow(private$buffered_pattern)-1):nrow(private$buffered_pattern), ], private$buffered_pattern, private$buffered_pattern[1:2, ])
+      }
+    },
+
     # Return the vector of neighbors of a cell
     neighbors = function(row, col) {
       if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4") {
-        neighbors <- c(private$buffered_pattern[row, col+1], private$buffered_pattern[row+2, col+1], private$buffered_pattern[row+1, col], private$buffered_pattern[row+1, col+2])
+        the_neighbors <- c(private$buffered_pattern[row, col+1], private$buffered_pattern[row+2, col+1], private$buffered_pattern[row+1, col], private$buffered_pattern[row+1, col+2])
       }
       if(self$neighborhood == "Moore 1" | self$neighborhood == "8") {
-        neighbors <- as.vector(private$buffered_pattern[row:(row+2), (col):(col+2)])[-5]
+        the_neighbors <- as.vector(private$buffered_pattern[row:(row+2), (col):(col+2)])[-5]
       }
       if(self$neighborhood == "Moore 2" | self$neighborhood == "24") {
-        neighbors <- as.vector(private$buffered_pattern[row:row+4, col:(col+4)])[-13]
+        the_neighbors <- as.vector(private$buffered_pattern[row:(row+4), col:(col+4)])[-13]
       }
-      return(neighbors)
+      return(the_neighbors)
     },
 
     plot = function(time = NULL, sleep=0, ...) {
       if (sleep>0) grDevices::dev.hold()
-      graphics::image(x=1:ncol(self$pattern), y=1:nrow(self$pattern), z=self$saved_pattern(time), xlab="", ylab="", axes=FALSE, asp=1, ...)
+      graphics::image(x=1:ncol(self$pattern), y=1:nrow(self$pattern), z=t(self$saved_pattern(time)), xlab="", ylab="", axes=FALSE, asp=1, ...)
       if (sleep>0) animation::ani.pause(sleep)
     },
 
     autoplot = function(time = NULL, ...) {
-      the_pattern <- self$saved_pattern(time)
+      the_pattern <- t(self$saved_pattern(time))
       if(is.null(the_pattern)) {
         invisible(NULL)
       } else {

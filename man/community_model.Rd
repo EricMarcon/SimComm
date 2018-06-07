@@ -26,6 +26,11 @@ The model represents a community, i.e. a set of interacting objects called agent
 \item{\code{last_time}}{The last time (in the time line) the model has been run.}
 
 \item{\code{run_patterns}}{The past patterns of the model, obtained by \code{run} and saved.}
+
+\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
+"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+"Moore 2" or "24" for two rings of neighbors.}
 }}
 
 \section{Public Methods}{

@@ -36,9 +36,6 @@ pm_Conway_glider(nx = 50, ny = nx)
 
 \item{alpha}{Fisher's alpha in the log-series model.}
 }
-\value{
-\code{evolve} methods should modifiy the model's pattern directly and return \code{NULL}.
-}
 \description{
 The location of the agents of a model is described by a pattern.
 Several patterns are available by default.
@@ -52,7 +49,7 @@ Available patterns:
   \item{\code{pattern_grid}}{A rectangular, regular grid of points. Each point has marks. Point are on a regular grid of 1x1 units of distance.}
   \item{\code{pattern_matrix_individuals}}{A matrix. Each cell of the matrix is an agent and has a numeric value equal to its type.}
   \item{\code{pattern_matrix_logical}}{A matrix. Each cell of the matrix is \code{FALSE} or \code{TRUE} (dead or alive, present or absent...).}
-  \item{\code{pm_Conway_blinker}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns}{Conway\'s game of life}. Three cells are alive. The pattern is designed to oscillate.}
-  \item{\code{pm_Conway_glider}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns}{Conway\'s game of life}. The pattern is designed to move.}
+  \item{\code{pm_Conway_blinker}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns}{Conway's game of life}. Three cells are alive. The pattern is designed to oscillate.}
+  \item{\code{pm_Conway_glider}}{A logical matrix for \href{https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns}{Conway's game of life}. The pattern is designed to move.}
 }
 }

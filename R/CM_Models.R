@@ -18,7 +18,7 @@ cm_drift <- R6Class("cm_drift",
   private = list(
     evolve =  function(time, save) {
       # Prepare the buffer
-      private$prepare_buffer()
+      self$prepare_buffer()
 
       # Draw a neighbor
       for(row in seq(nrow(self$pattern))) {
@@ -31,21 +31,6 @@ cm_drift <- R6Class("cm_drift",
         # Save the new pattern
         self$run_patterns[, , which(self$timeline == time)] <- self$pattern
       }
-    }
-  ),
-  public = list(
-    # palette = "PuOr",
-
-    initialize = function(pattern = pattern_matrix_individuals(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
-      super$initialize(pattern=pattern, timeline=timeline, type=type)
-      if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
-        self$neighborhood <- neighborhood
-      } else {
-        self$neighborhood <- "von Neumann 1"
-        warning("The neighborhood definition was not recognized: set to the default value.")
-      }
-      # Colors for plot()
-      # self$cols <- grDevices::rainbow(max(pattern))
     }
   )
 )
@@ -72,7 +57,7 @@ cm_Conway <- R6Class("cm_Conway",
   private = list(
     evolve =  function(time, save) {
       # Prepare the buffer
-      private$prepare_buffer()
+      self$prepare_buffer()
 
       # Change cells
       for(row in seq(nrow(self$pattern))) {
@@ -94,16 +79,8 @@ cm_Conway <- R6Class("cm_Conway",
     to_survive = c(2, 3),
     to_generate = 3,
 
-    initialize = function(pattern = pattern_matrix_logical(), timeline = 0, type = "Alive", neighborhood = "Moore 1") {
-      super$initialize(pattern=pattern, timeline=timeline, type=type)
-      if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
-        self$neighborhood <- neighborhood
-      } else {
-        self$neighborhood <- "Moore 1"
-        warning("The neighborhood definition was not recognized: set to the default value.")
-      }
-      # Colors for plot()
-      # self$cols <- grDevices::rainbow(max(pattern))
+    initialize = function(pattern = pattern_matrix_individuals(), timeline = 0, type = "Alive", neighborhood = "Moore 1") {
+      super$initialize(pattern=pattern, timeline=timeline, type=type, neighborhood=neighborhood)
     }
   )
 )

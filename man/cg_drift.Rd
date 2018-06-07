@@ -15,15 +15,6 @@ An \code{\link{R6Class}}.
 A \code{\link{community_gridmodel}} where each cell contains an individual. Marks are species.
 At each generation, each individual is replaced by one of its neghbors.
 }
-\section{Fields}{
-
-\describe{
-\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
-"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
-"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
-"Moore 2" or "24" for two rings of neighbors.}
-}}
-
 \section{Public Methods}{
 
 \describe{
