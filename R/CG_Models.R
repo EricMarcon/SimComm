@@ -13,8 +13,10 @@ cg_drift <- R6Class("cg_drift",
     evolve =  function(time, save) {
       # Find the neighbors of points
       the_neighbors <- sapply(seq(self$pattern$n), function(point) self$neighbors(point))
-      # Replace each point by a neighbor
-      self$pattern$marks$PointType <- apply(the_neighbors, 2,  sample, size=1)
+      # Choose a neighbor for each point
+      chosen_neighbors <- apply(the_neighbors, 2,  sample, size=1)
+      # Change the marks
+      self$pattern$marks$PointType <- sapply(chosen_neighbors, function(point) self$pattern$marks$PointType[point])
       if(save) {
         # Save the new pattern
         self$run_patterns[[which(self$timeline == time)]] <- self$pattern
