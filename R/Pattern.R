@@ -4,6 +4,7 @@
 #' Several patterns are available by default.
 #' They may be point patterns (of class \code{\link[spatstat]{ppp}}). Regular point patterns are called grids.
 #' They may also be matrices with no explicit coordinates by only notions of neighborhood. Matrix models are by far faster to run.
+#' Point patterns are provided by \code{\link[SpatDiv]{rSpCommunity}}.
 #' Patterns are to be used in the \code{pattern} field of a \code{\link{community_model}}.
 #'
 #' Available patterns:
@@ -25,6 +26,7 @@
 #' @param alpha Fisher's alpha in the log-series model.
 #' @name patterns
 NULL
+
 
 
 #' @rdname patterns
@@ -50,7 +52,6 @@ pattern_grid <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd =
 }
 
 
-
 #' @rdname patterns
 #'
 #' @export
@@ -65,7 +66,6 @@ pattern_matrix_individuals <- function(nx = 8, ny = nx, S = 300, Distribution = 
   class(the_matrix) <- c("pattern_matrix_individuals", class(the_matrix))
   return(the_matrix)
 }
-
 
 
 #' @rdname patterns

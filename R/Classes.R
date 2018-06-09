@@ -64,7 +64,7 @@ community_model <- R6Class("community_model",
       # Last step: save the pattern.
       if(save) {
         # Save the new pattern
-        self$run_patterns <- self$pattern
+        self$run_patterns[[which(self$timeline == time)]] <- self$pattern
       }
     }
   ),
@@ -79,6 +79,7 @@ community_model <- R6Class("community_model",
       self$pattern <- pattern
       private$pattern_class <- class(pattern)
       self$timeline <- sort(timeline)
+      self$tess <- spatstat::dirichlet(self$pattern)
       self$type <- type
     },
 
@@ -173,6 +174,66 @@ community_model <- R6Class("community_model",
 )
 
 
+#' Community Point Pattern Class
+#'
+#' A \code{\link{community_model}} whose pattern is a \code{\link[dbmss]{wmppp}} object..
+#' @docType class
+#' @inherit community_model
+#' @inheritParams community_model
+#' @export
+community_spcmodel <- R6Class("community_spcmodel",
+  inherit = community_model,
+  public = list(
+    tess = NULL,
+
+    initialize = function(pattern = SpatDiv::rSpCommunity(n=1, size = 100, CheckArguments = FALSE), timeline = 0, type = "Species") {
+      super$initialize(pattern=pattern, timeline=timeline)
+      self$type <- type
+      self$tess <- spatstat::dirichlet(self$pattern)
+    },
+
+    neighbors_n = function(n) {
+      spatstat::nnwhich(self$pattern, k=seq(n))
+    },
+
+    neighbors_r = function(r) {
+      distances <- spatstat::pairdist(self$pattern)
+      # Eliminate the diagonal
+      diag(distances) <- NA
+      return(apply(distances, 1, function(distance) which(distance <= r)))
+    },
+
+    neighbor_types_r = function(r) {
+      # The max value of the factors is needed
+      nb_species <- max(as.integer(self$pattern$marks$PointType))
+      # Run C++ routine to fill a 3D array. Rows are points, columns are r, the 3rd dimension has a z-value per species. Values are the number (weights) of neighbors of each point, up to ditance r, of species z.
+      the_neighbors_types <- SpatDiv:::parallelCountNbd(r=r, nb_species,
+                                     x=self$pattern$x, y=self$pattern$y,
+                                     Type=self$pattern$marks$PointType, Weight=self$pattern$marks$PointWeight)
+      # The matrix of neighbor communities is built from the vector returned.
+      dim(the_neighbors_types) <- c(self$pattern$n, nb_species)
+      return(the_neighbors_types)
+    },
+
+    plot = function(time = NULL, sleep=0, which.marks = "PointType", ...) {
+     # if sleep > 0, use the animation package for a fluid sequence of images
+     if (sleep>0) grDevices::dev.hold()
+     # Plot
+     if (which.marks == "PointType") {
+       spatstat::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
+       plot(self$tess, do.col=TRUE, ...)
+       graphics::points(myModel$pattern$x, myModel$pattern$y)
+     } else {
+       plot(self$saved_pattern(time), which.marks=which.marks, ...)
+     }
+     # Animation
+     if (sleep>0) animation::ani.pause(sleep)
+    }
+  )
+)
+
+
+
 #' Community Grid Model Class
 #'
 #' A \code{\link{community_model}} whose pattern is a regular, rectangular grid of points.
@@ -184,50 +245,50 @@ community_model <- R6Class("community_model",
 community_gridmodel <- R6Class("community_gridmodel",
   inherit = community_model,
   public = list(
-    tess = NULL,
-    neighborhood = NULL,
+  tess = NULL,
+  neighborhood = NULL,
 
-    initialize = function(pattern = pattern_grid(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
-      super$initialize(pattern=pattern, timeline=timeline)
-      self$tess <- spatstat::dirichlet(self$pattern)
-      self$type <- type
-      if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
-        self$neighborhood <- neighborhood
-      } else {
-        self$neighborhood <- "von Neumann 1"
-        warning("The neighborhood definition was not recognized: set to the default value.")
-      }
-      # Colors for plot()
-      # self$cols <- grDevices::rainbow(max(pattern))
-    },
+  initialize = function(pattern = pattern_grid(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
+    super$initialize(pattern=pattern, timeline=timeline)
+    self$tess <- spatstat::dirichlet(self$pattern)
+    self$type <- type
+    if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
+     self$neighborhood <- neighborhood
+    } else {
+     self$neighborhood <- "von Neumann 1"
+     warning("The neighborhood definition was not recognized: set to the default value.")
+    }
+    # Colors for plot()
+    # self$cols <- grDevices::rainbow(max(pattern))
+  },
 
-    neighbors = function(point) {
-      dx <- as.integer(round(abs(self$pattern$x[point] - self$pattern$x)))
-      dy <- as.integer(round(abs(self$pattern$y[point] - self$pattern$y)))
-      if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4")
-        the_neighbors <- which(((dx==1L | dx==self$pattern$window$xrange[2]-1L) & (dy==0L)) |
-                                 (dy==1L | dy==self$pattern$window$yrange[2]-1L) & (dx==0L))
-      if(self$neighborhood == "Moore 1" | self$neighborhood == "8")
-        the_neighbors <- which((dx<=1L | dx==self$pattern$window$xrange[2]-1L) &
-                                 (dy<=1L | dy==self$pattern$window$yrange[2]-1L) & !(dx==0L & dy==0L))
-      if(self$neighborhood == "Moore 2" | self$neighborhood == "24")
-        the_neighbors <- which((dx<=2L | dx>=self$pattern$window$xrange[2]-2L) &
-                                 (dy<=2L | dy>=self$pattern$window$yrange[2]-2L) & !(dx==0L & dy==0L))
-      return(the_neighbors)
-    },
+  neighbors = function(point) {
+    dx <- as.integer(round(abs(self$pattern$x[point] - self$pattern$x)))
+    dy <- as.integer(round(abs(self$pattern$y[point] - self$pattern$y)))
+    if(self$neighborhood == "von Neumann 1" | self$neighborhood == "4")
+      the_neighbors <- which(((dx==1L | dx==self$pattern$window$xrange[2]-1L) & (dy==0L)) |
+                              (dy==1L | dy==self$pattern$window$yrange[2]-1L) & (dx==0L))
+    if(self$neighborhood == "Moore 1" | self$neighborhood == "8")
+      the_neighbors <- which((dx<=1L | dx==self$pattern$window$xrange[2]-1L) &
+                              (dy<=1L | dy==self$pattern$window$yrange[2]-1L) & !(dx==0L & dy==0L))
+    if(self$neighborhood == "Moore 2" | self$neighborhood == "24")
+      the_neighbors <- which((dx<=2L | dx>=self$pattern$window$xrange[2]-2L) &
+                              (dy<=2L | dy>=self$pattern$window$yrange[2]-2L) & !(dx==0L & dy==0L))
+    return(the_neighbors)
+  },
 
-    plot = function(time = NULL, sleep=0, which="PointType", ...) {
-      # if sleep > 0, use the animation package for a fluid sequence of images
-      if (sleep>0) grDevices::dev.hold()
-      # Plot
-      if (which == "PointType") {
-        spatstat::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
-        plot(self$tess, do.col=TRUE, ...)
-      } else {
-        plot(self$saved_pattern(time), which=which, ...)
-      }
-      # Animation
-      if (sleep>0) animation::ani.pause(sleep)
+  plot = function(time = NULL, sleep=0, which.marks = "PointType", ...) {
+    # if sleep > 0, use the animation package for a fluid sequence of images
+    if (sleep>0) grDevices::dev.hold()
+    # Plot
+    if (which.marks == "PointType") {
+      spatstat::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
+      plot(self$tess, do.col=TRUE, ...)
+    } else {
+      plot(self$saved_pattern(time), which.marks=which.marks, ...)
+    }
+    # Animation
+    if (sleep>0) animation::ani.pause(sleep)
     }
   )
 )
