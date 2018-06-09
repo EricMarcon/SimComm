@@ -12,11 +12,10 @@
 cp_drift <- R6Class("cp_drift",
   inherit = community_spcmodel ,
   private = list(
+    neighbors = NULL,
     evolve =  function(time, save) {
-      # Find the neighbors
-      the_neighbors <- self$neighbors_n(self$n_neighbors)
-      # Choose one for each point
-      chosen_neighbors <- apply(the_neighbors, 1, sample, size=1)
+      # Choose one neighbor for each point
+      chosen_neighbors <- apply(private$neighbors, 1, sample, size=1)
       # Change the types
       self$pattern$marks$PointType <- self$pattern$marks$PointType[chosen_neighbors]
 
@@ -32,6 +31,8 @@ cp_drift <- R6Class("cp_drift",
     initialize = function(pattern = SpatDiv::rSpCommunity(n=1, size = 100, CheckArguments = FALSE), timeline = 0, type = "Species", n_neighbors = 6) {
       super$initialize(pattern=pattern, timeline=timeline, type=type)
       self$n_neighbors <- n_neighbors
+      # Store the neighbors
+      private$neighbors <- self$neighbors_n(self$n_neighbors)
     }
   )
 )
