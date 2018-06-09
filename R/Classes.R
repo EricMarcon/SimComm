@@ -79,7 +79,6 @@ community_model <- R6Class("community_model",
       self$pattern <- pattern
       private$pattern_class <- class(pattern)
       self$timeline <- sort(timeline)
-      self$tess <- spatstat::dirichlet(self$pattern)
       self$type <- type
     },
 
@@ -192,17 +191,27 @@ community_spcmodel <- R6Class("community_spcmodel",
       self$tess <- spatstat::dirichlet(self$pattern)
     },
 
+    # The n nearest nighbors
     neighbors_n = function(n) {
       spatstat::nnwhich(self$pattern, k=seq(n))
     },
 
-    neighbors_r = function(r) {
+    # Neighbors less than r apart
+    neighbors_r = function(r, keep_distances=FALSE) {
       distances <- spatstat::pairdist(self$pattern)
       # Eliminate the diagonal
       diag(distances) <- NA
-      return(apply(distances, 1, function(distance) which(distance <= r)))
+      # Points less than r apart
+      the_neighbors <- apply(distances, 1, function(distance) which(distance <= r))
+      if(keep_distances) {
+        # Restore the distance to self to zero
+        diag(distances) <- 0
+        attr(the_neighbors, "distances") <- distances
+      }
+      return(the_neighbors)
     },
 
+    # The type of neighbors less than r apart
     neighbor_types_r = function(r) {
       # The max value of the factors is needed
       nb_species <- max(as.integer(self$pattern$marks$PointType))
