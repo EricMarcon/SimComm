@@ -33,4 +33,8 @@ At each generation, each individual is replaced by one of its neghbors.
 }
 }
 
+\examples{
+myModel <- community_matrixmodel$new()
+myModel$autoplot()
+}
 \keyword{datasets}

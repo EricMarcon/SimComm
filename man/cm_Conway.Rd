@@ -39,4 +39,8 @@ Edge effects are eliminated by a toroidal correction.
 }
 }
 
+\examples{
+myModel <- community_matrixmodel$new()
+myModel$autoplot()
+}
 \keyword{datasets}

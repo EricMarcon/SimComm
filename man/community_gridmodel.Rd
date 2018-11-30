@@ -32,4 +32,8 @@ A \code{\link{community_model}} whose pattern is a regular, rectangular grid of 
 }
 }
 
+\examples{
+myModel <- community_matrixmodel$new()
+myModel$autoplot()
+}
 \keyword{datasets}

@@ -9,8 +9,8 @@
 \alias{pm_Conway_glider}
 \title{Patterns}
 \usage{
-pattern_grid(nx = 8, ny = nx, S = 300, Distribution = "lnorm", sd = 1,
-  prob = 0.1, alpha = 40)
+pattern_grid(nx = 8, ny = nx, S = 300, Distribution = "lnorm",
+  sd = 1, prob = 0.1, alpha = 40)
 
 pattern_matrix_individuals(nx = 8, ny = nx, S = 300,
   Distribution = "lnorm", sd = 1, prob = 0.1, alpha = 40)

@@ -24,11 +24,11 @@
 \method{Richness}{pattern_matrix_individuals}(NorP, Correction = "Chao1",
   Alpha = 0.05, JackOver = FALSE, ..., CheckArguments = TRUE)
 
-\method{Shannon}{pattern_matrix_individuals}(NorP, Correction = "Best", ...,
-  CheckArguments = TRUE)
+\method{Shannon}{pattern_matrix_individuals}(NorP, Correction = "Best",
+  ..., CheckArguments = TRUE)
 
-\method{Simpson}{pattern_matrix_individuals}(NorP, Correction = "Lande", ...,
-  CheckArguments = TRUE)
+\method{Simpson}{pattern_matrix_individuals}(NorP, Correction = "Lande",
+  ..., CheckArguments = TRUE)
 }
 \arguments{
 \item{x}{An object of class \code{\link{pattern_matrix_individuals}}.}

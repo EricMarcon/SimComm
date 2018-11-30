@@ -26,4 +26,8 @@ A \code{\link{community_model}} whose pattern is a \code{\link[dbmss]{wmppp}} ob
 }
 }
 
+\examples{
+myModel <- community_matrixmodel$new()
+myModel$autoplot()
+}
 \keyword{datasets}
