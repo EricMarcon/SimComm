@@ -1,31 +1,12 @@
 ---
 title: "SimComm"
 subtitle: "A Simulator of Communities"
-author: ""
-copyright: ""
-output:
-  packagedocs::package_docs:
-    toc: true
-    toc_collapse: false
-redirect: https://ericmarcon.github.io/SimComm
-vignette: |
-  %\VignetteIndexEntry{SimComm Documentation}
-  %\VignetteEngine{packagedocs::redirect}
-navpills: |
-  <li class="active"><a href='index.html'>Docs</a></li>
-  <li><a href='rd.html'>Package Ref</a></li>
-  <li><a href='https://github.com/EricMarcon/SimComm'>Github<i class='fa fa-github'></i></a></li>
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to SimComm}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-```{r global_options, include=FALSE}
-# R output pre blocks are styled by default to indicate output
-knitr::opts_chunk$set(comment = NA)
-# possible crop=TRUE
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
-# shorthand for rd_link() - see ?packagedocs::rd_link for more information
-rdl <- function(x) packagedocs::rd_link(deparse(substitute(x)))
-```
 
 This is a preliminary version of a package designed to simulate spatially-explicit communities.
 
@@ -34,8 +15,8 @@ This is a preliminary version of a package designed to simulate spatially-explic
 Install the package for _R_ from Github.
 
 ```{r install, eval=FALSE}
-library("devtools")
-devtools::install_github("EricMarcon/SimComm")
+library("remotes")
+remotes::install_github("EricMarcon/SimComm")
 ```
 
 
@@ -68,6 +49,7 @@ It must first be instantiated through its `new` method.
 Its initial pattern and the timeline to run it along are the arguments.
 
 ```{r}
+library("SimComm")
 myModel <- cm_Conway$new(pattern=pm_Conway_blinker(), timeline=0:10)
 ```
 
@@ -76,7 +58,6 @@ The `pm_Conway_blinker()` function returns a rectangular pattern designed to osc
 
 ```{r}
 myModel$autoplot()
-
 ```
 
 Evolution is launched by the `run` method.
