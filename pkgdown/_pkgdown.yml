@@ -8,15 +8,18 @@ reference:
     contents:
     - starts_with("SimComm")
   - title: Abstract classes
-    desc:
-    contents: R6 classes
+    desc: R6 classes
+    contents:
     - starts_with("community_")
   - title: Comunity Models
     contents:
-    - cg_drift
-    - cm_Conway
-    - cm_drift
+    - starts_with("cg_")
+    - starts_with("cm_")
+    - starts_with("cp_")
     - patterns
+  - title: Entropart methods
+    contents:
+    - entropart
   - title: Utilities
     contents:
     - autoplot.community_model
