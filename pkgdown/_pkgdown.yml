@@ -1,0 +1,23 @@
+url: https://ericmarcon.github.io/SimComm/
+
+development:
+  mode: auto
+
+reference:
+  - title: Package summary
+    contents:
+    - starts_with("SimComm")
+  - title: Abstract classes
+    desc:
+    contents: R6 classes
+    - starts_with("community_")
+  - title: Comunity Models
+    contents:
+    - cg_drift
+    - cm_Conway
+    - cm_drift
+    - patterns
+  - title: Utilities
+    contents:
+    - autoplot.community_model
+    - plot.community_model
