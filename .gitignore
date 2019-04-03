@@ -36,3 +36,4 @@ src/*.so
 src/*.dll
 # Extras
 .#Extra
+.Rproj.user
