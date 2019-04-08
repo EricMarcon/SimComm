@@ -10,5 +10,9 @@ r_github_packages:
  - EricMarcon/entropart
  - EricMarcon/SpatDiv
 
+r_binary_packages:
+    - libgit2
+    - magick
+
 after_success:
   - Rscript -e 'library(covr); codecov(type ="all")'
