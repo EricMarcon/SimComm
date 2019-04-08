@@ -11,7 +11,6 @@ r_github_packages:
  - EricMarcon/SpatDiv
 
 r_binary_packages:
-    - libgit2
     - magick
 
 addons:
