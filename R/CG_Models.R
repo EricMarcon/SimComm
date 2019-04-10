@@ -1,7 +1,7 @@
 #' Community Drift, grid version
 #'
 #' A \code{\link{community_gridmodel}} where each cell contains an individual. Marks are species.
-#' At each generation, each individual is replaced by one of its neghbors.
+#' At each generation, each individual is replaced by one of its neighbors.
 #'
 #' @docType class
 #' @inherit community_gridmodel

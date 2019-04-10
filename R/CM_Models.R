@@ -1,7 +1,7 @@
 #' Community Drift
 #'
 #' A \code{\link{community_matrixmodel}} where each cell contains an individual. Marks are species.
-#' At each generation, each individual is replaced by one of its neghbors.
+#' At each generation, each individual is replaced by one of its neighbors.
 #'
 #' Edge effects are eliminated by a toroidal correction.
 #'
