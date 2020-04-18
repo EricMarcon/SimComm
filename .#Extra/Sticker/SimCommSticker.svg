@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="8.5in"
+   height="11in"
+   viewBox="0 0 765.00001 990.00003"
+   id="svg7307"
+   version="1.1"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="SimCommSticker.svg"
+   inkscape:export-filename="C:\Users\Eric.Marcon\Documents\R\SpatDiv\man\figures\logo.png"
+   inkscape:export-xdpi="140.34"
+   inkscape:export-ydpi="140.34">
+  <defs
+     id="defs7309">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient7570">
+      <stop
+         style="stop-color:#970c03;stop-opacity:1;"
+         offset="0"
+         id="stop7566" />
+      <stop
+         style="stop-color:#970c03;stop-opacity:0;"
+         offset="1"
+         id="stop7568" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient7562"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#970c03;stop-opacity:1;"
+         offset="0"
+         id="stop7560" />
+    </linearGradient>
+    <clipPath
+       id="clipPath7668"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7666"
+         d="M 1419.8,1151.4 H 3374 V 3105.6 H 1419.8 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath9054"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9052"
+         d="M 0,3255 H 3940 V 0 H 0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath9899"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9897"
+         d="m 809.5,512.398 h 2682.8 v 2682.8 H 809.5 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath11285"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path11283"
+         d="M 0,3255 H 3940 V 0 H 0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath12144"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path12142"
+         d="m 495.199,355.301 h 3390 v 2839.9 h -3390 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath12192"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path12190"
+         d="M 0,3255 H 3940 V 0 H 0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath2103"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2101"
+         d="m 506.199,354.199 h 4489 v 2736 h -4489 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath2151"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2149"
+         d="M 0,0 H 5055 V 3150 H 0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath2270"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2268"
+         d="m 506.199,354.199 h 2314 v 1746 h -2314 z" />
+    </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7570"
+       id="linearGradient7572"
+       x1="126.84442"
+       y1="-208.07124"
+       x2="478.21436"
+       y2="-205.72749"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="8"
+     inkscape:cx="426.52066"
+     inkscape:cy="650.83438"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="in"
+     fit-margin-top="1"
+     fit-margin-bottom="1"
+     fit-margin-right="1"
+     fit-margin-left="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="3000"
+     inkscape:window-height="1875"
+     inkscape:window-x="-13"
+     inkscape:window-y="-13"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="526.50754,705.18846"
+       orientation="0,1"
+       id="guide8412"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="562.98996,525.67841"
+       orientation="0,1"
+       id="guide8414"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7312">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Artwork"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(178.67433,582.63783)"
+     style="display:inline">
+    <path
+       d="m 203.56453,-292.97596 73.14189,42.57485 -0.23438,84.8941 -72.67313,42.80923 -73.25907,-42.57485 v -85.01129 z m 0.23438,-4.85031 -76.95449,44.8772 v 89.75566 l 76.95449,44.87719 76.9545,-44.87719 v -89.75566 z"
+       id="path7067"
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:url(#linearGradient7572);fill-opacity:1;stroke-width:0.35433072;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:export-xdpi="140.34268"
+       inkscape:export-ydpi="140.34268"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:export-filename="C:\Users\Eric.Marcon\Documents\R\SimComm\man\figures\logo.png" />
+    <g
+       transform="matrix(1.25,0,0,-1.25,-178.67433,-175.13782)"
+       inkscape:label="ink_ext_XXXXXX"
+       id="g12120"
+       inkscape:export-filename="C:\Users\Eric.Marcon\Documents\R\SimComm\man\figures\logo.png"
+       inkscape:export-xdpi="140"
+       inkscape:export-ydpi="140">
+      <g
+         transform="scale(0.1)"
+         id="g12122" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.84124756px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.54603118px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="242.55165"
+       y="-10.096483"
+       id="text12397"
+       transform="matrix(0.8742924,-0.49644251,0.50716988,0.85579986,0,0)"
+       inkscape:export-filename="C:\Users\Eric.Marcon\Documents\R\SimComm\man\figures\logo.png"
+       inkscape:export-xdpi="140"
+       inkscape:export-ydpi="140"><tspan
+         sodipodi:role="line"
+         id="tspan12395"
+         x="242.55165"
+         y="-10.096483"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.36824942px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.54603118px">https://ericmarcon.github.io/SimComm/</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="154.25537"
+       y="-239.39563"
+       id="text7051"
+       inkscape:export-filename="C:\Users\Eric.Marcon\Documents\R\SimComm\man\figures\logo.png"
+       inkscape:export-xdpi="140"
+       inkscape:export-ydpi="140"><tspan
+         sodipodi:role="line"
+         id="tspan7049"
+         x="154.25537"
+         y="-239.39563"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;font-family:'Freestyle Script';-inkscape-font-specification:'Freestyle Script, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.9375px">SimComm</tspan></text>
+    <image
+       y="-238.73987"
+       x="135.44678"
+       id="image1317"
+       xlink:href="data:image/png;base64,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 kiRJOrX+D1CWbFT2ZKOwAAAAAElFTkSuQmCC "
+       preserveAspectRatio="none"
+       height="92.415855"
+       width="153.10545"
+       inkscape:export-filename="C:\Users\Eric.Marcon\Documents\R\SimComm\man\figures\logo.png"
+       inkscape:export-xdpi="140"
+       inkscape:export-ydpi="140" />
+  </g>
+</svg>
