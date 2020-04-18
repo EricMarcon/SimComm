@@ -3,8 +3,8 @@ warnings_are_errors: false                            # true for release
 cache: packages
 
 r_packages:
-  - devtools
   - covr
+  - pkgdown
 
 r_github_packages:
   - EricMarcon/entropart
