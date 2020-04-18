@@ -1,4 +1,5 @@
 language: r
+warnings_are_errors: false                            # true for release
 cache: packages
 
 r_packages:
@@ -34,7 +35,7 @@ deploy:
   token: $GITHUB_TOKEN
   on:
     branch: master
-    local_dir: docs
+  local_dir: docs
 
 notifications:
   email:
