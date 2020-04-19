@@ -1,13 +1,13 @@
 language: r
-warnings_are_errors: false                            # true for release
+r:
+  - devel
+
+warnings_are_errors: true
 cache: packages
 
 r_packages:
   - covr
   - pkgdown
-
-r_binary_packages:
-  - rcpp
 
 r_github_packages:
   - EricMarcon/dbmss
@@ -23,6 +23,7 @@ addons:
     sources:
       - sourceline: 'ppa:opencpu/imagemagick'
     packages:
+      - libmagick++-dev
 
 after_success:
   - Rscript -e 'library(covr); codecov(type ="all")'
