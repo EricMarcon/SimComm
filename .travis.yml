@@ -1,4 +1,5 @@
 language: r
+env: R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
 warnings_are_errors: true
 cache: packages
 
@@ -8,11 +9,10 @@ r_packages:
 
 r_binary_packages:
   - magick
-  - dbmss
-  - entropart
 
 r_github_packages:
-#  - EricMarcon/entropart
+  - EricMarcon/dbmss
+  - EricMarcon/entropart
   - EricMarcon/SpatDiv
 
 #addons:
