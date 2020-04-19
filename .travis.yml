@@ -8,6 +8,7 @@ r_packages:
 
 r_binary_packages:
   - magick
+  - ggplot
   - dbmss
 
 r_github_packages:
