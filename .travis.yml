@@ -11,9 +11,9 @@ r_binary_packages:
   - dbmss
   - entropart
 
-#r_github_packages:
+r_github_packages:
 #  - EricMarcon/entropart
-#  - EricMarcon/SpatDiv
+  - EricMarcon/SpatDiv
 
 #addons:
 #  apt:
