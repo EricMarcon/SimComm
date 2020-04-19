@@ -17,13 +17,13 @@ r_github_packages:
 r_binary_packages:
   - magick
 
-addons:
-  apt:
-    update: true
-    sources:
-      - sourceline: 'ppa:cran/imagemagick'
-    packages:
-      - libmagick++-dev
+#addons:
+#  apt:
+#    update: true
+#    sources:
+#      - sourceline: 'ppa:cran/imagemagick'
+#    packages:
+#      - libmagick++-dev
 
 after_success:
   - Rscript -e 'library(covr); codecov(type ="all")'
