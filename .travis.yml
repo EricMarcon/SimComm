@@ -21,7 +21,7 @@ addons:
   apt:
     update: true
     sources:
-      - sourceline: 'ppa:opencpu/imagemagick'
+      - sourceline: 'ppa:cran/imagemagick'
     packages:
       - libmagick++-dev
 
