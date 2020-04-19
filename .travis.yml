@@ -6,6 +6,9 @@ r_packages:
   - covr
   - pkgdown
 
+r_binary_packages:
+  - rcpp
+
 r_github_packages:
   - EricMarcon/dbmss
   - EricMarcon/entropart
