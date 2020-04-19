@@ -8,13 +8,12 @@ r_packages:
 
 r_binary_packages:
   - magick
-  - ggrepel
-  - ggplot2
   - dbmss
+  - entropart
 
-r_github_packages:
-  - EricMarcon/entropart
-  - EricMarcon/SpatDiv
+#r_github_packages:
+#  - EricMarcon/entropart
+#  - EricMarcon/SpatDiv
 
 #addons:
 #  apt:
