@@ -1,7 +1,4 @@
 language: r
-r:
-  - devel
-
 warnings_are_errors: true
 cache: packages
 
@@ -9,13 +6,13 @@ r_packages:
   - covr
   - pkgdown
 
-r_github_packages:
-  - EricMarcon/dbmss
-  - EricMarcon/entropart
-  - EricMarcon/SpatDiv
-
 r_binary_packages:
   - magick
+  - dbmss
+
+r_github_packages:
+  - EricMarcon/entropart
+  - EricMarcon/SpatDiv
 
 #addons:
 #  apt:
