@@ -12,6 +12,8 @@ BugReports: https://github.com/EricMarcon/SimComm/issues
 Depends: R6, entropart, ggplot2
 Imports: animation, grDevices, spatstat, SpatDiv, dbmss
 Suggests: magrittr, knitr, testthat
+Remotes:
+  EricMarcon/SpatDiv
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
