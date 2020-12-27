@@ -8,10 +8,6 @@
 #' @docType class
 #' @inherit community_matrixmodel
 #' @inheritParams community_matrixmodel
-#' @field neighborhood A character string defining what is the neighborhood of a cell:
-#' "von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
-#' "Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
-#' "Moore 2" or "24" for two rings of neighbors.
 #' @export
 cm_drift <- R6Class("cm_drift",
   inherit = community_matrixmodel,

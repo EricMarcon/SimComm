@@ -4,10 +4,6 @@
 \name{cm_Conway}
 \alias{cm_Conway}
 \title{Conway's game of life}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-cm_Conway
-}
 \value{
 An \code{\link{R6Class}}.
 }
@@ -19,14 +15,6 @@ At each generation, an individual may survive or not and empty cells be filled b
 The survival and generation rules are fixed by the number of neighbors of each cell.
 Edge effects are eliminated by a toroidal correction.
 }
-\section{Fields}{
-
-\describe{
-\item{\code{to_survive}}{The number of neighbors necessary for an individual to survive. Default is \code{2:3}.}
-
-\item{\code{to_generate}}{The number of neighbors necessary for an empty cell to generate an individual. Default is 3.}
-}}
-
 \section{Public Methods}{
 
 \describe{
@@ -43,4 +31,67 @@ Edge effects are eliminated by a toroidal correction.
 myModel <- community_matrixmodel$new()
 myModel$autoplot()
 }
-\keyword{datasets}
+\section{Super classes}{
+\code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{\link[SimComm:community_matrixmodel]{SimComm::community_matrixmodel}} -> \code{cm_Conway}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{to_survive}}{The number of neighbors necessary for an individual to survive. Default is \code{2:3}.}
+
+\item{\code{to_generate}}{The number of neighbors necessary for an empty cell to generate an individual. Default is 3.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{cm_Conway$new()}}
+\item \href{#method-clone}{\code{cm_Conway$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="autoplot">}\href{../../SimComm/html/community_matrixmodel.html#method-autoplot}{\code{SimComm::community_matrixmodel$autoplot()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="neighbors">}\href{../../SimComm/html/community_matrixmodel.html#method-neighbors}{\code{SimComm::community_matrixmodel$neighbors()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="plot">}\href{../../SimComm/html/community_matrixmodel.html#method-plot}{\code{SimComm::community_matrixmodel$plot()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="prepare_buffer">}\href{../../SimComm/html/community_matrixmodel.html#method-prepare_buffer}{\code{SimComm::community_matrixmodel$prepare_buffer()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{cm_Conway$new(
+  pattern = pattern_matrix_individuals(),
+  timeline = 0,
+  type = "Alive",
+  neighborhood = "Moore 1"
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{cm_Conway$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

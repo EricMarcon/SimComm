@@ -15,20 +15,22 @@
 
 \method{as.ProbaVector}{pattern_matrix_individuals}(x, ...)
 
-\method{Tsallis}{pattern_matrix_individuals}(NorP, q = 1,
-  Correction = "Best", ..., CheckArguments = TRUE)
+\method{Tsallis}{pattern_matrix_individuals}(NorP, q = 1, Correction = "Best", ..., CheckArguments = TRUE)
 
-\method{Diversity}{pattern_matrix_individuals}(NorP, q = 1,
-  Correction = "Best", ..., CheckArguments = TRUE)
+\method{Diversity}{pattern_matrix_individuals}(NorP, q = 1, Correction = "Best", ..., CheckArguments = TRUE)
 
-\method{Richness}{pattern_matrix_individuals}(NorP, Correction = "Chao1",
-  Alpha = 0.05, JackOver = FALSE, ..., CheckArguments = TRUE)
+\method{Richness}{pattern_matrix_individuals}(
+  NorP,
+  Correction = "Chao1",
+  Alpha = 0.05,
+  JackOver = FALSE,
+  ...,
+  CheckArguments = TRUE
+)
 
-\method{Shannon}{pattern_matrix_individuals}(NorP, Correction = "Best",
-  ..., CheckArguments = TRUE)
+\method{Shannon}{pattern_matrix_individuals}(NorP, Correction = "Best", ..., CheckArguments = TRUE)
 
-\method{Simpson}{pattern_matrix_individuals}(NorP, Correction = "Lande",
-  ..., CheckArguments = TRUE)
+\method{Simpson}{pattern_matrix_individuals}(NorP, Correction = "Lande", ..., CheckArguments = TRUE)
 }
 \arguments{
 \item{x}{An object of class \code{\link{pattern_matrix_individuals}}.}

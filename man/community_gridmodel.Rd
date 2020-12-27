@@ -4,22 +4,12 @@
 \name{community_gridmodel}
 \alias{community_gridmodel}
 \title{Community Grid Model Class}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-community_gridmodel
-}
 \value{
 An \code{\link{R6Class}}.
 }
 \description{
 A \code{\link{community_model}} whose pattern is a regular, rectangular grid of points.
 }
-\section{Fields}{
-
-\describe{
-\item{\code{tess}}{A tesselization of the window containing the points, used to plot the model.}
-}}
-
 \section{Public Methods}{
 
 \describe{
@@ -36,4 +26,87 @@ A \code{\link{community_model}} whose pattern is a regular, rectangular grid of 
 myModel <- community_matrixmodel$new()
 myModel$autoplot()
 }
-\keyword{datasets}
+\section{Super class}{
+\code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{community_gridmodel}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{tess}}{A tesselization of the window containing the points, used to plot the model.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{community_gridmodel$new()}}
+\item \href{#method-neighbors}{\code{community_gridmodel$neighbors()}}
+\item \href{#method-plot}{\code{community_gridmodel$plot()}}
+\item \href{#method-clone}{\code{community_gridmodel$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot">}\href{../../SimComm/html/community_model.html#method-autoplot}{\code{SimComm::community_model$autoplot()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$new(
+  pattern = pattern_grid(),
+  timeline = 0,
+  type = "Species",
+  neighborhood = "von Neumann 1"
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-neighbors"></a>}}
+\if{latex}{\out{\hypertarget{method-neighbors}{}}}
+\subsection{Method \code{neighbors()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$neighbors(point)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-plot}{}}}
+\subsection{Method \code{plot()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$plot(
+  time = NULL,
+  sleep = 0,
+  which.marks = "PointType",
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

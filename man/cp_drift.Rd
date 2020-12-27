@@ -4,10 +4,6 @@
 \name{cp_drift}
 \alias{cp_drift}
 \title{Community Drift}
-\format{An object of class \code{R6ClassGenerator} of length 24.}
-\usage{
-cp_drift
-}
 \value{
 An \code{\link{R6Class}}.
 }
@@ -15,12 +11,6 @@ An \code{\link{R6Class}}.
 A \code{\link{community_spcmodel}}.
 At each generation, each individual is replaced by one of its neghbors.
 }
-\section{Fields}{
-
-\describe{
-\item{\code{n_neighbors}}{The number of nearest neighbors to take into account.}
-}}
-
 \section{Public Methods}{
 
 \describe{
@@ -37,4 +27,66 @@ At each generation, each individual is replaced by one of its neghbors.
 myModel <- community_matrixmodel$new()
 myModel$autoplot()
 }
-\keyword{datasets}
+\section{Super classes}{
+\code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{\link[SimComm:community_spcmodel]{SimComm::community_spcmodel}} -> \code{cp_drift}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{n_neighbors}}{The number of nearest neighbors to take into account.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{cp_drift$new()}}
+\item \href{#method-clone}{\code{cp_drift$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot">}\href{../../SimComm/html/community_model.html#method-autoplot}{\code{SimComm::community_model$autoplot()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_spcmodel" data-id="neighbor_types_r">}\href{../../SimComm/html/community_spcmodel.html#method-neighbor_types_r}{\code{SimComm::community_spcmodel$neighbor_types_r()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_spcmodel" data-id="neighbors_n">}\href{../../SimComm/html/community_spcmodel.html#method-neighbors_n}{\code{SimComm::community_spcmodel$neighbors_n()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_spcmodel" data-id="neighbors_r">}\href{../../SimComm/html/community_spcmodel.html#method-neighbors_r}{\code{SimComm::community_spcmodel$neighbors_r()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_spcmodel" data-id="plot">}\href{../../SimComm/html/community_spcmodel.html#method-plot}{\code{SimComm::community_spcmodel$plot()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{cp_drift$new(
+  pattern = SpatDiv::rSpCommunity(n = 1, size = 100, CheckArguments = FALSE),
+  timeline = 0,
+  type = "Species",
+  n_neighbors = 6
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{cp_drift$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

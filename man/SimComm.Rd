@@ -3,7 +3,6 @@
 \docType{package}
 \name{SimComm}
 \alias{SimComm}
-\alias{SimComm-package}
 \title{SimComm}
 \description{
 Community simulator.

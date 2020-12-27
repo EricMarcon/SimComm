@@ -4,9 +4,8 @@
 \name{community_model}
 \alias{community_model}
 \title{Community Model Class}
-\format{\code{\link{R6Class}} object.}
-\usage{
-community_model
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 An \code{\link{R6Class}}.
@@ -14,25 +13,6 @@ An \code{\link{R6Class}}.
 \description{
 The model represents a community, i.e. a set of interacting objects called agents. Their location is described by a \code{pattern} that \code{evolve}s along a \code{timeline}.
 }
-\section{Fields}{
-
-\describe{
-\item{\code{pattern}}{The pattern which describes the location of agents.}
-
-\item{\code{type}}{The type of individuals. Informational only.}
-
-\item{\code{timeline}}{A numeric vector.}
-
-\item{\code{last_time}}{The last time (in the time line) the model has been run.}
-
-\item{\code{run_patterns}}{The past patterns of the model, obtained by \code{run} and saved.}
-
-\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
-"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
-"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
-"Moore 2" or "24" for two rings of neighbors.}
-}}
-
 \section{Public Methods}{
 
 \describe{
@@ -49,4 +29,126 @@ The model represents a community, i.e. a set of interacting objects called agent
 myModel <- community_matrixmodel$new()
 myModel$autoplot()
 }
-\keyword{datasets}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{pattern}}{The pattern which describes the location of agents.}
+
+\item{\code{type}}{The type of individuals. Informational only.}
+
+\item{\code{timeline}}{A numeric vector.}
+
+\item{\code{last_time}}{The last time (in the time line) the model has been run.}
+
+\item{\code{run_patterns}}{The past patterns of the model, obtained by \code{run} and saved.}
+
+\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
+"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+"Moore 2" or "24" for two rings of neighbors.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
+"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+"Moore 2" or "24" for two rings of neighbors.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{community_model$new()}}
+\item \href{#method-plot}{\code{community_model$plot()}}
+\item \href{#method-autoplot}{\code{community_model$autoplot()}}
+\item \href{#method-run}{\code{community_model$run()}}
+\item \href{#method-saved_pattern}{\code{community_model$saved_pattern()}}
+\item \href{#method-along_time}{\code{community_model$along_time()}}
+\item \href{#method-clone}{\code{community_model$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$new(pattern = NULL, timeline = 0, type = "Species")}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-plot}{}}}
+\subsection{Method \code{plot()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$plot(
+  time = NULL,
+  sleep = animation::ani.options("interval"),
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-autoplot"></a>}}
+\if{latex}{\out{\hypertarget{method-autoplot}{}}}
+\subsection{Method \code{autoplot()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$autoplot(time = NULL, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-run"></a>}}
+\if{latex}{\out{\hypertarget{method-run}{}}}
+\subsection{Method \code{run()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$run(
+  animate = FALSE,
+  sleep = animation::ani.options("interval"),
+  save = FALSE,
+  more_time = NULL
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-saved_pattern"></a>}}
+\if{latex}{\out{\hypertarget{method-saved_pattern}{}}}
+\subsection{Method \code{saved_pattern()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$saved_pattern(time)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-along_time"></a>}}
+\if{latex}{\out{\hypertarget{method-along_time}{}}}
+\subsection{Method \code{along_time()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$along_time(FUN, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{community_model$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
