@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -102,7 +102,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/EricMarcon/SimComm/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -128,7 +128,6 @@
     <p>The model represents a community, i.e. a set of interacting objects called agents. Their location is described by a <code>pattern</code> that <code>evolve</code>s along a <code>timeline</code>.</p>
     </div>
 
-    <pre class="usage"><span class='no'>community_model</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
@@ -137,11 +136,23 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An <code>R6Class</code>.</p>
-    <h2 class="hasAnchor" id="fields"><a class="anchor" href="#fields"></a>Fields</h2>
+    <h2 class="hasAnchor" id="public-methods"><a class="anchor" href="#public-methods"></a>Public Methods</h2>
 
     
 
-<dl'>
+<dl>
+  <dt><code>initialize(pattern = NULL, timeline = 0, type = "Species")</code></dt><dd><p>Initialization.</p></dd>
+  <dt><code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot(time=NULL, sleep=animation::ani.options("interval"), ...)</a></code></dt><dd><p>Default plot method: plots the pattern.</p></dd>
+  <dt><code>autoplot(time=NULL, ...)</code></dt><dd><p>Makes a <code>ggplot</code> of the pattern.</p></dd>
+  <dt><code>run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)</code></dt><dd><p>Run the model.</p></dd>
+  <dt><code>saved_pattern(time)</code></dt><dd><p>Returns the pattern at the chosen time.</p></dd>
+  <dt><code>along_time(FUN, ...)</code></dt><dd><p>Applies the function FUN to the saved patterns along time and returns a dataframe with columns <code>x</code> for time and <code>y</code> for the results of FUN. FUN must return a single value.</p></dd>
+
+</dl>
+
+    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
+
+    <p><div class="r6-fields"></p><dl>
 <dt><code>pattern</code></dt><dd><p>The pattern which describes the location of agents.</p></dd>
 
 <dt><code>type</code></dt><dd><p>The type of individuals. Informational only.</p></dd>
@@ -157,25 +168,92 @@
 "Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
 "Moore 2" or "24" for two rings of neighbors.</p></dd>
 
-</dl>
-    <h2 class="hasAnchor" id="public-methods"><a class="anchor" href="#public-methods"></a>Public Methods</h2>
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active bindings</h2>
+
+    <p><div class="r6-active-bindings"></p><dl>
+<dt><code>neighborhood</code></dt><dd><p>A character string defining what is the neighborhood of a cell:
+"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+"Moore 2" or "24" for two rings of neighbors.</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
-<dl'>
-  <dt><code>initialize(pattern = NULL, timeline = 0, type = "Species")</code></dt><dd><p>Initialization.</p></dd>
-  <dt><code><a href='https://rdrr.io/r/graphics/plot.html'>plot(time=NULL, sleep=animation::ani.options("interval"), ...)</a></code></dt><dd><p>Default plot method: plots the pattern.</p></dd>
-  <dt><code>autoplot(time=NULL, ...)</code></dt><dd><p>Makes a <code>ggplot</code> of the pattern.</p></dd>
-  <dt><code>run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)</code></dt><dd><p>Run the model.</p></dd>
-  <dt><code>saved_pattern(time)</code></dt><dd><p>Returns the pattern at the chosen time.</p></dd>
-  <dt><code>along_time(FUN, ...)</code></dt><dd><p>Applies the function FUN to the saved patterns along time and returns a dataframe with columns <code>x</code> for time and <code>y</code> for the results of FUN. FUN must return a single value.</p></dd>
+<ul>
+<li><p><a href='#method-new'><code>community_model$new()</code></a></p></li>
+<li><p><a href='#method-plot'><code>community_model$plot()</code></a></p></li>
+<li><p><a href='#method-autoplot'><code>community_model$autoplot()</code></a></p></li>
+<li><p><a href='#method-run'><code>community_model$run()</code></a></p></li>
+<li><p><a href='#method-saved_pattern'><code>community_model$saved_pattern()</code></a></p></li>
+<li><p><a href='#method-along_time'><code>community_model$along_time()</code></a></p></li>
+<li><p><a href='#method-clone'><code>community_model$clone()</code></a></p></li>
+</ul>
+<p><hr>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
 
-</dl>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>pattern <span class='op'>=</span> <span class='cn'>NULL</span>, timeline <span class='op'>=</span> <span class='fl'>0</span>, type <span class='op'>=</span> <span class='st'>"Species"</span><span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-plot"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot()</a></code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>plot</span><span class='op'>(</span>
+  time <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sleep <span class='op'>=</span> <span class='fu'>animation</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/animation/man/ani.options.html'>ani.options</a></span><span class='op'>(</span><span class='st'>"interval"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-autoplot"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>autoplot()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>autoplot</span><span class='op'>(</span>time <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-run"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>run()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>run</span><span class='op'>(</span>
+  animate <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  sleep <span class='op'>=</span> <span class='fu'>animation</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/animation/man/ani.options.html'>ani.options</a></span><span class='op'>(</span><span class='st'>"interval"</span><span class='op'>)</span>,
+  save <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  more_time <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-saved_pattern"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>saved_pattern()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>saved_pattern</span><span class='op'>(</span><span class='va'>time</span><span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-along_time"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>along_time()</code></h3>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>along_time</span><span class='op'>(</span><span class='va'>FUN</span>, <span class='va'>...</span><span class='op'>)</span></pre><p></div></p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='va'>community_model</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
+
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>myModel</span> <span class='kw'>&lt;-</span> <span class='no'>community_matrixmodel</span>$<span class='fu'>new</span>()
-<span class='no'>myModel</span>$<span class='fu'>autoplot</span>()</div><div class='img'><img src='community_model-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='va'>myModel</span> <span class='op'>&lt;-</span> <span class='va'><a href='community_matrixmodel.html'>community_matrixmodel</a></span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>myModel</span><span class='op'>$</span><span class='fu'>autoplot</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='img'><img src='community_model-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -191,7 +269,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
