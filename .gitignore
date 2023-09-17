@@ -19,6 +19,7 @@ vignettes/*.html
 vignettes/*.pdf
 vignettes/*.R
 vignettes/*_files/
+vignettes/*_cache/
 vignettes/articles/*.html
 vignettes/articles/*.pdf
 vignettes/articles/*_files/
