@@ -91,6 +91,7 @@ p7 <- myModel$autoplot(time=7)+ theme(legend.position="none")
 library("gridExtra")
 grid.arrange(p5, p6, p7, ncol=3)
 ```
+
 The `along_time` method allows applying a function to all saved patterns and return its value along time.
 The number of occupied cells is constant along the evolution of the model.
 The `sum` function is used to count them:
