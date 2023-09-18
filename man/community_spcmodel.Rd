@@ -32,27 +32,27 @@ myModel$autoplot()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{community_spcmodel$new()}}
-\item \href{#method-neighbors_n}{\code{community_spcmodel$neighbors_n()}}
-\item \href{#method-neighbors_r}{\code{community_spcmodel$neighbors_r()}}
-\item \href{#method-neighbor_types_r}{\code{community_spcmodel$neighbor_types_r()}}
-\item \href{#method-plot}{\code{community_spcmodel$plot()}}
-\item \href{#method-clone}{\code{community_spcmodel$clone()}}
+\item \href{#method-community_spcmodel-new}{\code{community_spcmodel$new()}}
+\item \href{#method-community_spcmodel-neighbors_n}{\code{community_spcmodel$neighbors_n()}}
+\item \href{#method-community_spcmodel-neighbors_r}{\code{community_spcmodel$neighbors_r()}}
+\item \href{#method-community_spcmodel-neighbor_types_r}{\code{community_spcmodel$neighbor_types_r()}}
+\item \href{#method-community_spcmodel-plot}{\code{community_spcmodel$plot()}}
+\item \href{#method-community_spcmodel-clone}{\code{community_spcmodel$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot">}\href{../../SimComm/html/community_model.html#method-autoplot}{\code{SimComm::community_model$autoplot()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time"><a href='../../SimComm/html/community_model.html#method-community_model-along_time'><code>SimComm::community_model$along_time()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot"><a href='../../SimComm/html/community_model.html#method-community_model-autoplot'><code>SimComm::community_model$autoplot()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run"><a href='../../SimComm/html/community_model.html#method-community_model-run'><code>SimComm::community_model$run()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern"><a href='../../SimComm/html/community_model.html#method-community_model-saved_pattern'><code>SimComm::community_model$saved_pattern()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-community_spcmodel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-community_spcmodel-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$new(
@@ -64,8 +64,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-neighbors_n"></a>}}
-\if{latex}{\out{\hypertarget{method-neighbors_n}{}}}
+\if{html}{\out{<a id="method-community_spcmodel-neighbors_n"></a>}}
+\if{latex}{\out{\hypertarget{method-community_spcmodel-neighbors_n}{}}}
 \subsection{Method \code{neighbors_n()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$neighbors_n(n)}\if{html}{\out{</div>}}
@@ -73,8 +73,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-neighbors_r"></a>}}
-\if{latex}{\out{\hypertarget{method-neighbors_r}{}}}
+\if{html}{\out{<a id="method-community_spcmodel-neighbors_r"></a>}}
+\if{latex}{\out{\hypertarget{method-community_spcmodel-neighbors_r}{}}}
 \subsection{Method \code{neighbors_r()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$neighbors_r(r, keep_distances = FALSE)}\if{html}{\out{</div>}}
@@ -82,8 +82,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-neighbor_types_r"></a>}}
-\if{latex}{\out{\hypertarget{method-neighbor_types_r}{}}}
+\if{html}{\out{<a id="method-community_spcmodel-neighbor_types_r"></a>}}
+\if{latex}{\out{\hypertarget{method-community_spcmodel-neighbor_types_r}{}}}
 \subsection{Method \code{neighbor_types_r()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$neighbor_types_r(r)}\if{html}{\out{</div>}}
@@ -91,8 +91,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-plot"></a>}}
-\if{latex}{\out{\hypertarget{method-plot}{}}}
+\if{html}{\out{<a id="method-community_spcmodel-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-community_spcmodel-plot}{}}}
 \subsection{Method \code{plot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$plot(time = NULL, sleep = 0, which.marks = "PointType", ...)}\if{html}{\out{</div>}}
@@ -100,8 +100,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-community_spcmodel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-community_spcmodel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

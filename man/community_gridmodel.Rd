@@ -39,25 +39,25 @@ myModel$autoplot()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{community_gridmodel$new()}}
-\item \href{#method-neighbors}{\code{community_gridmodel$neighbors()}}
-\item \href{#method-plot}{\code{community_gridmodel$plot()}}
-\item \href{#method-clone}{\code{community_gridmodel$clone()}}
+\item \href{#method-community_gridmodel-new}{\code{community_gridmodel$new()}}
+\item \href{#method-community_gridmodel-neighbors}{\code{community_gridmodel$neighbors()}}
+\item \href{#method-community_gridmodel-plot}{\code{community_gridmodel$plot()}}
+\item \href{#method-community_gridmodel-clone}{\code{community_gridmodel$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot">}\href{../../SimComm/html/community_model.html#method-autoplot}{\code{SimComm::community_model$autoplot()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time"><a href='../../SimComm/html/community_model.html#method-community_model-along_time'><code>SimComm::community_model$along_time()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot"><a href='../../SimComm/html/community_model.html#method-community_model-autoplot'><code>SimComm::community_model$autoplot()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run"><a href='../../SimComm/html/community_model.html#method-community_model-run'><code>SimComm::community_model$run()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern"><a href='../../SimComm/html/community_model.html#method-community_model-saved_pattern'><code>SimComm::community_model$saved_pattern()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-community_gridmodel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-community_gridmodel-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$new(
@@ -70,8 +70,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-neighbors"></a>}}
-\if{latex}{\out{\hypertarget{method-neighbors}{}}}
+\if{html}{\out{<a id="method-community_gridmodel-neighbors"></a>}}
+\if{latex}{\out{\hypertarget{method-community_gridmodel-neighbors}{}}}
 \subsection{Method \code{neighbors()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$neighbors(point)}\if{html}{\out{</div>}}
@@ -79,8 +79,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-plot"></a>}}
-\if{latex}{\out{\hypertarget{method-plot}{}}}
+\if{html}{\out{<a id="method-community_gridmodel-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-community_gridmodel-plot}{}}}
 \subsection{Method \code{plot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_gridmodel$plot(
@@ -93,8 +93,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-community_gridmodel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-community_gridmodel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -3,6 +3,7 @@
 \docType{package}
 \name{SimComm}
 \alias{SimComm}
+\alias{SimComm-package}
 \title{SimComm}
 \description{
 Community simulator.
@@ -11,5 +12,22 @@ Community simulator.
 This package alows simulating the evolution along time of communities of agents, whose location is decribed by a pattern (a matrix or a point pattern).
 The communities are represented by R6 classes: \code{\link{community_model}}.
 A model contains a pattern, a timeline and an evolution method that is run along the timeline.
-This is a classical approach in community ecoology modeling or agent based models.
+This is a classical approach in community ecology modeling or agent based models.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/EricMarcon/SimComm}
+  \item Report bugs at \url{https://github.com/EricMarcon/SimComm/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Eric Marcon \email{eric.marcon@ecofog.gf} (\href{https://orcid.org/0000-0002-5249-321X}{ORCID})
+
+Authors:
+\itemize{
+  \item Alain Rousteau \email{alain.rousteau@univ-antilles.fr}
+}
+
 }

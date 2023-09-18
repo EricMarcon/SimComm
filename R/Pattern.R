@@ -34,7 +34,7 @@ NULL
 #' @export
 pattern_grid <- function(nx = 8, ny = nx, S = 300, Distribution = "lnorm",  sd = 1, prob = 0.1, alpha = 40) {
   # Make a regular grid
-  the_ppp <- spatstat::rsyst(nx=nx, ny=ny)
+  the_ppp <- spatstat.geom::rsyst(nx=nx, ny=ny)
   # Adapt coordinates so that they start at .5 and end at nx or ny - .5
   the_ppp$window$xrange <- the_ppp$window$xrange * nx
   the_ppp$window$yrange <- the_ppp$window$yrange * ny

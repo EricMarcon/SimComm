@@ -33,25 +33,25 @@ myModel$autoplot()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-clone}{\code{cg_drift$clone()}}
+\item \href{#method-cg_drift-clone}{\code{cg_drift$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot">}\href{../../SimComm/html/community_model.html#method-autoplot}{\code{SimComm::community_model$autoplot()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_gridmodel" data-id="initialize">}\href{../../SimComm/html/community_gridmodel.html#method-initialize}{\code{SimComm::community_gridmodel$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_gridmodel" data-id="neighbors">}\href{../../SimComm/html/community_gridmodel.html#method-neighbors}{\code{SimComm::community_gridmodel$neighbors()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_gridmodel" data-id="plot">}\href{../../SimComm/html/community_gridmodel.html#method-plot}{\code{SimComm::community_gridmodel$plot()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time"><a href='../../SimComm/html/community_model.html#method-community_model-along_time'><code>SimComm::community_model$along_time()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="autoplot"><a href='../../SimComm/html/community_model.html#method-community_model-autoplot'><code>SimComm::community_model$autoplot()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run"><a href='../../SimComm/html/community_model.html#method-community_model-run'><code>SimComm::community_model$run()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern"><a href='../../SimComm/html/community_model.html#method-community_model-saved_pattern'><code>SimComm::community_model$saved_pattern()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_gridmodel" data-id="initialize"><a href='../../SimComm/html/community_gridmodel.html#method-community_gridmodel-initialize'><code>SimComm::community_gridmodel$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_gridmodel" data-id="neighbors"><a href='../../SimComm/html/community_gridmodel.html#method-community_gridmodel-neighbors'><code>SimComm::community_gridmodel$neighbors()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_gridmodel" data-id="plot"><a href='../../SimComm/html/community_gridmodel.html#method-community_gridmodel-plot'><code>SimComm::community_gridmodel$plot()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-cg_drift-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-cg_drift-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

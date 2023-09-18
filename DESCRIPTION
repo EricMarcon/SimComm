@@ -1,7 +1,7 @@
 Package: SimComm
 Type: Package
 Title: A Simulator of Communities
-Version: 0.1-1
+Version: 0.1-2
 Authors@R: c(
   person("Eric", "Marcon", email="eric.marcon@ecofog.gf", role=c("aut", "cre"), comment = c(ORCID = "0000-0002-5249-321X")),
   person("Alain", "Rousteau", email="alain.rousteau@univ-antilles.fr", role=c("aut"))
@@ -9,14 +9,27 @@ Authors@R: c(
 Description: Simulation of communities.
 URL: https://github.com/EricMarcon/SimComm
 BugReports: https://github.com/EricMarcon/SimComm/issues
-Depends: R6, entropart, ggplot2
-Imports: animation, grDevices, spatstat, SpatDiv, dbmss
-Suggests: magrittr, knitr, testthat
+License: GNU General Public License
+Depends:
+  R (>= 3.5),
+  entropart
+Imports: 
+  animation,
+  dbmss,
+  ggplot2,
+  grDevices,
+  spatstat.geom,
+  SpatDiv
+Suggests: 
+  knitr,
+  magrittr, 
+  testthat
 Remotes:
   EricMarcon/SpatDiv
-License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 SystemRequirements: pandoc
+Config/testthat/edition: 3

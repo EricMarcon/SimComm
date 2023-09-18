@@ -11,6 +11,11 @@
 "_PACKAGE"
 
 
+# Functions to reexport
+#' @export
+ggplot2::autoplot
+
+
 #' plot Community Models
 #'
 #' S3 method to force the use of the R6 method.

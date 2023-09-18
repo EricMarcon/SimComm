@@ -33,49 +33,29 @@ myModel$autoplot()
 \section{Super classes}{
 \code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{\link[SimComm:community_matrixmodel]{SimComm::community_matrixmodel}} -> \code{cm_drift}
 }
-\section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
-"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
-"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
-"Moore 2" or "24" for two rings of neighbors.}
-}
-\if{html}{\out{</div>}}
-}
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
-"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
-"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
-"Moore 2" or "24" for two rings of neighbors.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-clone}{\code{cm_drift$clone()}}
+\item \href{#method-cm_drift-clone}{\code{cm_drift$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="autoplot">}\href{../../SimComm/html/community_matrixmodel.html#method-autoplot}{\code{SimComm::community_matrixmodel$autoplot()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="initialize">}\href{../../SimComm/html/community_matrixmodel.html#method-initialize}{\code{SimComm::community_matrixmodel$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="neighbors">}\href{../../SimComm/html/community_matrixmodel.html#method-neighbors}{\code{SimComm::community_matrixmodel$neighbors()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="plot">}\href{../../SimComm/html/community_matrixmodel.html#method-plot}{\code{SimComm::community_matrixmodel$plot()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="prepare_buffer">}\href{../../SimComm/html/community_matrixmodel.html#method-prepare_buffer}{\code{SimComm::community_matrixmodel$prepare_buffer()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time"><a href='../../SimComm/html/community_model.html#method-community_model-along_time'><code>SimComm::community_model$along_time()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run"><a href='../../SimComm/html/community_model.html#method-community_model-run'><code>SimComm::community_model$run()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern"><a href='../../SimComm/html/community_model.html#method-community_model-saved_pattern'><code>SimComm::community_model$saved_pattern()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="autoplot"><a href='../../SimComm/html/community_matrixmodel.html#method-community_matrixmodel-autoplot'><code>SimComm::community_matrixmodel$autoplot()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="initialize"><a href='../../SimComm/html/community_matrixmodel.html#method-community_matrixmodel-initialize'><code>SimComm::community_matrixmodel$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="neighbors"><a href='../../SimComm/html/community_matrixmodel.html#method-community_matrixmodel-neighbors'><code>SimComm::community_matrixmodel$neighbors()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="plot"><a href='../../SimComm/html/community_matrixmodel.html#method-community_matrixmodel-plot'><code>SimComm::community_matrixmodel$plot()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_matrixmodel" data-id="prepare_buffer"><a href='../../SimComm/html/community_matrixmodel.html#method-community_matrixmodel-prepare_buffer'><code>SimComm::community_matrixmodel$prepare_buffer()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-cm_drift-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-cm_drift-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

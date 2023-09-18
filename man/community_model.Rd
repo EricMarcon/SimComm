@@ -62,18 +62,18 @@ myModel$autoplot()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{community_model$new()}}
-\item \href{#method-plot}{\code{community_model$plot()}}
-\item \href{#method-autoplot}{\code{community_model$autoplot()}}
-\item \href{#method-run}{\code{community_model$run()}}
-\item \href{#method-saved_pattern}{\code{community_model$saved_pattern()}}
-\item \href{#method-along_time}{\code{community_model$along_time()}}
-\item \href{#method-clone}{\code{community_model$clone()}}
+\item \href{#method-community_model-new}{\code{community_model$new()}}
+\item \href{#method-community_model-plot}{\code{community_model$plot()}}
+\item \href{#method-community_model-autoplot}{\code{community_model$autoplot()}}
+\item \href{#method-community_model-run}{\code{community_model$run()}}
+\item \href{#method-community_model-saved_pattern}{\code{community_model$saved_pattern()}}
+\item \href{#method-community_model-along_time}{\code{community_model$along_time()}}
+\item \href{#method-community_model-clone}{\code{community_model$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-community_model-new"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_model$new(pattern = NULL, timeline = 0, type = "Species")}\if{html}{\out{</div>}}
@@ -81,8 +81,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-plot"></a>}}
-\if{latex}{\out{\hypertarget{method-plot}{}}}
+\if{html}{\out{<a id="method-community_model-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-plot}{}}}
 \subsection{Method \code{plot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_model$plot(
@@ -94,8 +94,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-autoplot"></a>}}
-\if{latex}{\out{\hypertarget{method-autoplot}{}}}
+\if{html}{\out{<a id="method-community_model-autoplot"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-autoplot}{}}}
 \subsection{Method \code{autoplot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_model$autoplot(time = NULL, ...)}\if{html}{\out{</div>}}
@@ -103,8 +103,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-run"></a>}}
-\if{latex}{\out{\hypertarget{method-run}{}}}
+\if{html}{\out{<a id="method-community_model-run"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-run}{}}}
 \subsection{Method \code{run()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_model$run(
@@ -117,8 +117,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-saved_pattern"></a>}}
-\if{latex}{\out{\hypertarget{method-saved_pattern}{}}}
+\if{html}{\out{<a id="method-community_model-saved_pattern"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-saved_pattern}{}}}
 \subsection{Method \code{saved_pattern()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_model$saved_pattern(time)}\if{html}{\out{</div>}}
@@ -126,8 +126,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-along_time"></a>}}
-\if{latex}{\out{\hypertarget{method-along_time}{}}}
+\if{html}{\out{<a id="method-community_model-along_time"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-along_time}{}}}
 \subsection{Method \code{along_time()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_model$along_time(FUN, ...)}\if{html}{\out{</div>}}
@@ -135,8 +135,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-community_model-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-community_model-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

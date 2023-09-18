@@ -188,17 +188,17 @@ community_spcmodel <- R6Class("community_spcmodel",
     initialize = function(pattern = SpatDiv::rSpCommunity(n=1, size = 100, CheckArguments = FALSE), timeline = 0, type = "Species") {
       super$initialize(pattern=pattern, timeline=timeline)
       self$type <- type
-      self$tess <- spatstat::dirichlet(self$pattern)
+      self$tess <- spatstat.geom::dirichlet(self$pattern)
     },
 
     # The n nearest nighbors
     neighbors_n = function(n) {
-      spatstat::nnwhich(self$pattern, k=seq(n))
+      spatstat.geom::nnwhich(self$pattern, k=seq(n))
     },
 
     # Neighbors less than r apart
     neighbors_r = function(r, keep_distances=FALSE) {
-      distances <- spatstat::pairdist(self$pattern)
+      distances <- spatstat.geom::pairdist(self$pattern)
       # Eliminate the diagonal
       diag(distances) <- NA
       # Points less than r apart
@@ -229,7 +229,7 @@ community_spcmodel <- R6Class("community_spcmodel",
      if (sleep>0) grDevices::dev.hold()
      # Plot
      if (which.marks == "PointType") {
-       spatstat::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
+       spatstat.geom::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
        plot(self$tess, do.col=TRUE, ...)
        graphics::points(myModel$pattern$x, myModel$pattern$y)
      } else {
@@ -259,7 +259,7 @@ community_gridmodel <- R6Class("community_gridmodel",
 
   initialize = function(pattern = pattern_grid(), timeline = 0, type = "Species", neighborhood = "von Neumann 1") {
     super$initialize(pattern=pattern, timeline=timeline)
-    self$tess <- spatstat::dirichlet(self$pattern)
+    self$tess <- spatstat.geom::dirichlet(self$pattern)
     self$type <- type
     if (neighborhood %in% c("von Neumann 1", "4", "Moore 1", "8", "Moore 2", "24")) {
      self$neighborhood <- neighborhood
@@ -291,7 +291,7 @@ community_gridmodel <- R6Class("community_gridmodel",
     if (sleep>0) grDevices::dev.hold()
     # Plot
     if (which.marks == "PointType") {
-      spatstat::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
+      spatstat.geom::marks(self$tess) <- self$saved_pattern(time)$marks$PointType
       plot(self$tess, do.col=TRUE, ...)
     } else {
       plot(self$saved_pattern(time), which.marks=which.marks, ...)

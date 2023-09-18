@@ -32,26 +32,26 @@ myModel$autoplot()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{community_matrixmodel$new()}}
-\item \href{#method-prepare_buffer}{\code{community_matrixmodel$prepare_buffer()}}
-\item \href{#method-neighbors}{\code{community_matrixmodel$neighbors()}}
-\item \href{#method-plot}{\code{community_matrixmodel$plot()}}
-\item \href{#method-autoplot}{\code{community_matrixmodel$autoplot()}}
-\item \href{#method-clone}{\code{community_matrixmodel$clone()}}
+\item \href{#method-community_matrixmodel-new}{\code{community_matrixmodel$new()}}
+\item \href{#method-community_matrixmodel-prepare_buffer}{\code{community_matrixmodel$prepare_buffer()}}
+\item \href{#method-community_matrixmodel-neighbors}{\code{community_matrixmodel$neighbors()}}
+\item \href{#method-community_matrixmodel-plot}{\code{community_matrixmodel$plot()}}
+\item \href{#method-community_matrixmodel-autoplot}{\code{community_matrixmodel$autoplot()}}
+\item \href{#method-community_matrixmodel-clone}{\code{community_matrixmodel$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time">}\href{../../SimComm/html/community_model.html#method-along_time}{\code{SimComm::community_model$along_time()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run">}\href{../../SimComm/html/community_model.html#method-run}{\code{SimComm::community_model$run()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern">}\href{../../SimComm/html/community_model.html#method-saved_pattern}{\code{SimComm::community_model$saved_pattern()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="along_time"><a href='../../SimComm/html/community_model.html#method-community_model-along_time'><code>SimComm::community_model$along_time()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="run"><a href='../../SimComm/html/community_model.html#method-community_model-run'><code>SimComm::community_model$run()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="SimComm" data-topic="community_model" data-id="saved_pattern"><a href='../../SimComm/html/community_model.html#method-community_model-saved_pattern'><code>SimComm::community_model$saved_pattern()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-community_matrixmodel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-community_matrixmodel-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_matrixmodel$new(
@@ -64,8 +64,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-prepare_buffer"></a>}}
-\if{latex}{\out{\hypertarget{method-prepare_buffer}{}}}
+\if{html}{\out{<a id="method-community_matrixmodel-prepare_buffer"></a>}}
+\if{latex}{\out{\hypertarget{method-community_matrixmodel-prepare_buffer}{}}}
 \subsection{Method \code{prepare_buffer()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_matrixmodel$prepare_buffer()}\if{html}{\out{</div>}}
@@ -73,8 +73,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-neighbors"></a>}}
-\if{latex}{\out{\hypertarget{method-neighbors}{}}}
+\if{html}{\out{<a id="method-community_matrixmodel-neighbors"></a>}}
+\if{latex}{\out{\hypertarget{method-community_matrixmodel-neighbors}{}}}
 \subsection{Method \code{neighbors()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_matrixmodel$neighbors(row, col)}\if{html}{\out{</div>}}
@@ -82,8 +82,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-plot"></a>}}
-\if{latex}{\out{\hypertarget{method-plot}{}}}
+\if{html}{\out{<a id="method-community_matrixmodel-plot"></a>}}
+\if{latex}{\out{\hypertarget{method-community_matrixmodel-plot}{}}}
 \subsection{Method \code{plot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_matrixmodel$plot(time = NULL, sleep = 0, ...)}\if{html}{\out{</div>}}
@@ -91,8 +91,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-autoplot"></a>}}
-\if{latex}{\out{\hypertarget{method-autoplot}{}}}
+\if{html}{\out{<a id="method-community_matrixmodel-autoplot"></a>}}
+\if{latex}{\out{\hypertarget{method-community_matrixmodel-autoplot}{}}}
 \subsection{Method \code{autoplot()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_matrixmodel$autoplot(time = NULL, ...)}\if{html}{\out{</div>}}
@@ -100,8 +100,8 @@ myModel$autoplot()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-community_matrixmodel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-community_matrixmodel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

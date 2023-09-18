@@ -53,7 +53,7 @@ pm_Conway_glider(nx = 50, ny = nx)
 \description{
 The location of the agents of a model is described by a pattern.
 Several patterns are available by default.
-They may be point patterns (of class \code{\link[spatstat]{ppp}}). Regular point patterns are called grids.
+They may be point patterns (of class \code{\link[spatstat.geom]{ppp}}). Regular point patterns are called grids.
 They may also be matrices with no explicit coordinates by only notions of neighborhood. Matrix models are by far faster to run.
 Point patterns are provided by \code{\link[SpatDiv]{rSpCommunity}}.
 Patterns are to be used in the \code{pattern} field of a \code{\link{community_model}}.
