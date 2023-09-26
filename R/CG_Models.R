@@ -1,13 +1,12 @@
 #' Community Drift, grid version
 #'
-#' A \code{\link{community_gridmodel}} where each cell contains an individual. Marks are species.
+#' A [community_gridmodel] where each cell contains an individual.
+#' Marks are species.
 #' At each generation, each individual is replaced by one of its neighbors.
 #'
 #' @docType class
-#' @inherit community_gridmodel
-#' @inheritParams community_gridmodel
 #' @export
-cg_drift <- R6Class("cg_drift",
+cg_drift <- R6::R6Class("cg_drift",
   inherit = community_gridmodel,
   private = list(
     evolve =  function(time, save) {
@@ -18,7 +17,7 @@ cg_drift <- R6Class("cg_drift",
         # Find the neighbors of the point
         the_neighbors <- self$neighbors(point)
         # Choose one
-        chosen_neighbor <- sample(the_neighbors, size=1)
+        chosen_neighbor <- sample(the_neighbors, size = 1)
         # Change the point's mark
         the_species[point] <- self$pattern$marks$PointType[chosen_neighbor]
       }

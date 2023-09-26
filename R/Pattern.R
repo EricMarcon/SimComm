@@ -1,23 +1,35 @@
 #' Pattern
 #'
+#' @description
 #' The location of the agents of a model is described by a pattern.
+#'
+#' @details
 #' Several patterns are available by default.
-#' They may be point patterns (of class [spatstat.geom::ppp]). Regular point patterns are called grids.
-#' They may also be matrices with no explicit coordinates by only notions of neighborhood. Matrix models are by far faster to run.
-#' Point patterns are provided by [SpatDiv::rSpCommunity()].
+#' They may be point patterns (of class [spatstat.geom::ppp]).
+#' Regular point patterns are called grids.
+#' They may also be matrices with no explicit coordinates by only notions of neighborhood.
+#' Matrix models are by far faster to run.
+#' Point patterns are provided by [SpatDiv::rSpCommunity].
 #' Patterns are to be used in the `pattern` field of a [community_model].
 #'
-#' Available patterns:
+#' Available patterns are:
 #'
-#'   - `pattern_grid` A rectangular, regular grid of points. Each point has marks. Point are on a regular grid of 1x1 units of distance.
-#'   - `pattern_matrix_individuals` A matrix. Each cell of the matrix is an agent and has a numeric value equal to its type.
-#'   - `pattern_matrix_logical` A matrix. Each cell of the matrix is `FALSE` or `TRUE` (dead or alive, present or absent...).
-#'   - `pm_Conway_blinker` A logical matrix for [Conway's game of life](https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns). Three cells are alive. The pattern is designed to oscillate.
-#'   - `pm_Conway_glider` A logical matrix for [Conway's game of life](https://en.wikipedia.org/wiki/Conway\%27s_Game_of_Life#Examples_of_patterns). The pattern is designed to move.
+#'   - `pattern_grid` A rectangular, regular grid of points.
+#'      Each point has marks.
+#'      Point are on a regular grid of 1x1 units of distance.
+#'   - `pattern_matrix_individuals` A matrix.
+#'      Each cell of the matrix is an agent and has a numeric value equal to its type.
+#'   - `pattern_matrix_logical` A matrix.
+#'      Each cell of the matrix is `FALSE` or `TRUE` (dead or alive, present or absent...).
+#'   - `pm_Conway_blinker` A logical matrix for [Conway's game of life](https://en.wikipedia.org/wiki/Conway\\%27s_Game_of_Life#Examples_of_patterns).
+#'      Three cells are alive.
+#'      The pattern is designed to oscillate.
+#'   - `pm_Conway_glider` A logical matrix for [Conway's game of life](https://en.wikipedia.org/wiki/Conway\\%27s_Game_of_Life#Examples_of_patterns).
+#'      The pattern is designed to move.
 #'
 #'
 #' @param nx The number of X values (columns) of the grid or the matrix.
-#' @param ny The number of y values (lines) of the grid or the matrix.
+#' @param ny The number of Y values (lines) of the grid or the matrix.
 #' @param S The number of species.
 #' @param Distribution The distribution of species frequencies. May be "lnorm" (log-normal), "lseries" (log-series), "geom" (geometric) or "bstick" (broken stick).
 #' @param sd The simulated distribution standard deviation. For the log-normal distribution, this is the standard deviation on the log scale.

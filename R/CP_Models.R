@@ -1,15 +1,17 @@
 #' Community Drift
 #'
-#' A \code{\link{community_spcmodel}}.
-#' At each generation, each individual is replaced by one of its neghbors.
+#' A [community_spcmodel].
+#' At each generation, each individual is replaced by one of its neighbors.
 #'
 #'
-#' @docType class
-#' @inherit community_spcmodel
-#' @inheritParams community_spcmodel
-#' @field n_neighbors The number of nearest neighbors to take into account.
+#' @param n_neighbors Number of neighbors.
+#' @param pattern The pattern which describes the location of agents.
+#' @param time The point of the timeline considered.
+#' Its value should be in `timeline`.
+#' @param type The type of individuals. Informational only.
+#' @param timeline A numeric vector that contains the points of time of interest.
 #' @export
-cp_drift <- R6Class("cp_drift",
+cp_drift <- R6::R6Class("cp_drift",
   inherit = community_spcmodel ,
   private = list(
     neighbors = NULL,
@@ -25,11 +27,19 @@ cp_drift <- R6Class("cp_drift",
       }
     }
   ),
+
   public = list (
+    #' @field n_neighbors The number of nearest neighbors to take into account.
     n_neighbors = NULL,
 
-    initialize = function(pattern = SpatDiv::rSpCommunity(n=1, size = 100, CheckArguments = FALSE), timeline = 0, type = "Species", n_neighbors = 6) {
-      super$initialize(pattern=pattern, timeline=timeline, type=type)
+    #' @description
+    #' Create a new object.
+    initialize = function(
+        pattern = SpatDiv::rSpCommunity(n = 1, size = 100, CheckArguments = FALSE),
+        timeline = 0,
+        type = "Species",
+        n_neighbors = 6) {
+      super$initialize(pattern = pattern, timeline = timeline, type = type)
       self$n_neighbors <- n_neighbors
       # Store the neighbors
       private$neighbors <- self$neighbors_n(self$n_neighbors)

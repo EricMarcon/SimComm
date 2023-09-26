@@ -33,28 +33,33 @@
 \method{Simpson}{pattern_matrix_individuals}(NorP, Correction = "Lande", ..., CheckArguments = TRUE)
 }
 \arguments{
-\item{x}{An object of class \code{\link{pattern_matrix_individuals}}.}
+\item{x}{An object of class \link{pattern_matrix_individuals}.}
 
 \item{...}{Further arguments. Unsused.}
 
-\item{NorP}{An object of class "wmppp" (\code{\link{pattern_matrix_individuals}}).}
+\item{NorP}{An object of class "wmppp" (\link{pattern_matrix_individuals}).}
 
-\item{q}{A number: the order of entropy. Some corrections allow only a positive number. Default is 1 for Shannon entropy.}
+\item{q}{A number: the order of entropy. Some corrections allow only a positive number.
+Default is 1 for Shannon entropy.}
 
-\item{Correction}{A string containing one of the possible corrections: \code{"None"} (no correction), and \code{"Best"} are always valid. See the generic function help for other posiibilities.}
+\item{Correction}{A string containing one of the possible corrections:
+"None" (no correction), and "Best" are always valid.
+See the generic function help for other possibilities.}
 
-\item{CheckArguments}{If \code{TRUE} (default), the function arguments are verified. Should be set to \code{FALSE} to save time in simulations for example, when the arguments have been checked elsewhere.}
+\item{CheckArguments}{If \code{TRUE} (default), the function arguments are verified.
+Should be set to \code{FALSE} to save time in simulations for example, when the arguments have been checked elsewhere.}
 
 \item{Alpha}{The risk level, 5\% by default, used to optimize the jackknife order.}
 
-\item{JackOver}{If \code{TRUE}, retain the jackknife order immediately superior to the optimal one, usually resulting in the overestimation of the number of species. Default is \code{FALSE}.}
+\item{JackOver}{If \code{TRUE}, retain the jackknife order immediately superior to the optimal one, usually resulting in the overestimation of the number of species.
+Default is \code{FALSE}.}
 }
 \description{
 The entropart package provides generic methods to measure diversity.
 S3 methods to aplly them to simulated communities are available here.
-\code{\link{AbdVector}} returns an abundance vector and \code{\link{ProbaVector}} returns a probability vector.
-\code{\link{Tsallis}} returns Tsallis's entropy of a community, \code{\link{Diversity}} its diversity.
-\code{\link{Richness}}, \code{\link{Shannon}}  and \code{\link{Simpson}} return particular indices of diversity.
+\link{AbdVector} returns an abundance vector and \link{ProbaVector} returns a probability vector.
+\link{Tsallis} returns Tsallis's entropy of a community, \link{Diversity} its diversity.
+\link{Richness}, \link{Shannon}  and \link{Simpson} return particular indices of diversity.
 }
 \examples{
 # A community matrix drift model

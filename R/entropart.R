@@ -2,19 +2,24 @@
 #'
 #' The entropart package provides generic methods to measure diversity.
 #' S3 methods to aplly them to simulated communities are available here.
-#' \code{\link{AbdVector}} returns an abundance vector and \code{\link{ProbaVector}} returns a probability vector.
-#' \code{\link{Tsallis}} returns Tsallis's entropy of a community, \code{\link{Diversity}} its diversity.
-#' \code{\link{Richness}}, \code{\link{Shannon}}  and \code{\link{Simpson}} return particular indices of diversity.
+#' [AbdVector] returns an abundance vector and [ProbaVector] returns a probability vector.
+#' [Tsallis] returns Tsallis's entropy of a community, [Diversity] its diversity.
+#' [Richness], [Shannon]  and [Simpson] return particular indices of diversity.
 #'
 #'
-#' @param x An object of class \code{\link{pattern_matrix_individuals}}.
-#' @param NorP An object of class "wmppp" (\code{\link{pattern_matrix_individuals}}).
-#' @param q A number: the order of entropy. Some corrections allow only a positive number. Default is 1 for Shannon entropy.
-#' @param Correction A string containing one of the possible corrections: \code{"None"} (no correction), and \code{"Best"} are always valid. See the generic function help for other posiibilities.
-#' @param Alpha The risk level, 5\% by default, used to optimize the jackknife order.
-#' @param JackOver If \code{TRUE}, retain the jackknife order immediately superior to the optimal one, usually resulting in the overestimation of the number of species. Default is \code{FALSE}.
+#' @param x An object of class [pattern_matrix_individuals].
+#' @param NorP An object of class "wmppp" ([pattern_matrix_individuals]).
+#' @param q A number: the order of entropy. Some corrections allow only a positive number.
+#' Default is 1 for Shannon entropy.
+#' @param Correction A string containing one of the possible corrections:
+#' "None" (no correction), and "Best" are always valid.
+#' See the generic function help for other possibilities.
+#' @param Alpha The risk level, 5% by default, used to optimize the jackknife order.
+#' @param JackOver If `TRUE`, retain the jackknife order immediately superior to the optimal one, usually resulting in the overestimation of the number of species.
+#' Default is `FALSE`.
 #' @param ... Further arguments. Unsused.
-#' @param CheckArguments If \code{TRUE} (default), the function arguments are verified. Should be set to \code{FALSE} to save time in simulations for example, when the arguments have been checked elsewhere.
+#' @param CheckArguments If `TRUE` (default), the function arguments are verified.
+#' Should be set to `FALSE` to save time in simulations for example, when the arguments have been checked elsewhere.
 #' @name entropart
 
 

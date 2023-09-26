@@ -4,30 +4,23 @@
 \name{community_spcmodel}
 \alias{community_spcmodel}
 \title{Community Point Pattern Class}
-\value{
-An \code{\link{R6Class}}.
-}
 \description{
-A \code{\link{community_model}} whose pattern is a \code{\link[dbmss]{wmppp}} object..
-}
-\section{Public Methods}{
+Community Point Pattern Class
 
-\describe{
-  \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
-  \item{\code{plot(time=NULL, sleep=animation::ani.options("interval"), ...)}}{Default plot method: plots the pattern.}
-  \item{\code{autoplot(time=NULL, ...)}}{Makes a \code{\link{ggplot}} of the pattern.}
-  \item{\code{run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)}}{Run the model.}
-  \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
-  \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
+Community Point Pattern Class
 }
-}
-
-\examples{
-myModel <- community_matrixmodel$new()
-myModel$autoplot()
+\details{
+A \link{community_model} whose pattern is a \link[dbmss:wmppp]{dbmss::wmppp} object..
 }
 \section{Super class}{
 \code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{community_spcmodel}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{tess}}{The Dirichlet tessellation of the spatial point pattern.}
+}
+\if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -54,6 +47,7 @@ myModel$autoplot()
 \if{html}{\out{<a id="method-community_spcmodel-new"></a>}}
 \if{latex}{\out{\hypertarget{method-community_spcmodel-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$new(
   pattern = SpatDiv::rSpCommunity(n = 1, size = 100, CheckArguments = FALSE),
@@ -62,42 +56,93 @@ myModel$autoplot()
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{pattern}}{The pattern which describes the location of agents.}
+
+\item{\code{timeline}}{A numeric vector that contains the points of time of interest.}
+
+\item{\code{type}}{The type of individuals. Informational only.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-community_spcmodel-neighbors_n"></a>}}
 \if{latex}{\out{\hypertarget{method-community_spcmodel-neighbors_n}{}}}
 \subsection{Method \code{neighbors_n()}}{
+The n nearest neighbors
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$neighbors_n(n)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{n}}{The number of neighbors considered as in the neighborhood.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-community_spcmodel-neighbors_r"></a>}}
 \if{latex}{\out{\hypertarget{method-community_spcmodel-neighbors_r}{}}}
 \subsection{Method \code{neighbors_r()}}{
+Neighbors less than r apart
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$neighbors_r(r, keep_distances = FALSE)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{r}}{The distance that defines the neighborhood.}
+
+\item{\code{keep_distances}}{if \code{TRUE}, save the vector of distances to neighbors in the attribute \code{the_neighbors}.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-community_spcmodel-neighbor_types_r"></a>}}
 \if{latex}{\out{\hypertarget{method-community_spcmodel-neighbor_types_r}{}}}
 \subsection{Method \code{neighbor_types_r()}}{
+The type of neighbors less than r apart
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$neighbor_types_r(r)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{r}}{The distance that defines the neighborhood.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-community_spcmodel-plot"></a>}}
 \if{latex}{\out{\hypertarget{method-community_spcmodel-plot}{}}}
 \subsection{Method \code{plot()}}{
+Plots the pattern.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{community_spcmodel$plot(time = NULL, sleep = 0, which.marks = "PointType", ...)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{time}}{The point of the timeline considered.}
+
+\item{\code{sleep}}{The time (in ms) to sleep between each step of the evolution of the model.}
+
+\item{\code{which.marks}}{The marks to plot, that must be a the name of a column of the mark dataframe.}
+
+\item{\code{...}}{Extra arguments to be passed to methods.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-community_spcmodel-clone"></a>}}

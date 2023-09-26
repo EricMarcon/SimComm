@@ -4,28 +4,10 @@
 \name{cg_drift}
 \alias{cg_drift}
 \title{Community Drift, grid version}
-\value{
-An \code{\link{R6Class}}.
-}
 \description{
-A \code{\link{community_gridmodel}} where each cell contains an individual. Marks are species.
+A \link{community_gridmodel} where each cell contains an individual.
+Marks are species.
 At each generation, each individual is replaced by one of its neighbors.
-}
-\section{Public Methods}{
-
-\describe{
-  \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
-  \item{\code{plot(time=NULL, sleep=animation::ani.options("interval"), ...)}}{Default plot method: plots the pattern.}
-  \item{\code{autoplot(time=NULL, ...)}}{Makes a \code{\link{ggplot}} of the pattern.}
-  \item{\code{run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)}}{Run the model.}
-  \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
-  \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
-}
-}
-
-\examples{
-myModel <- community_matrixmodel$new()
-myModel$autoplot()
 }
 \section{Super classes}{
 \code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{\link[SimComm:community_gridmodel]{SimComm::community_gridmodel}} -> \code{cg_drift}

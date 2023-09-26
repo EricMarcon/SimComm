@@ -9,8 +9,9 @@
 Community simulator.
 }
 \details{
-This package alows simulating the evolution along time of communities of agents, whose location is decribed by a pattern (a matrix or a point pattern).
-The communities are represented by R6 classes: \code{\link{community_model}}.
+This package allows simulating the evolution along time of communities of agents,
+whose location is decribed by a pattern (a matrix or a point pattern).
+The communities are represented by R6 classes that inherit from \link{community_model}.
 A model contains a pattern, a timeline and an evolution method that is run along the timeline.
 This is a classical approach in community ecology modeling or agent based models.
 }

@@ -15,7 +15,8 @@
 S3 method to force the use of the R6 method.
 }
 \details{
-This is a helper function to always use the R6 method rather than the S3 method: \code{plot(MyModel)} is translated to \code{MyModel$plot}.
+This is a helper function to always use the R6 method rather than the S3 method:
+\code{plot(MyModel)} is translated to \code{MyModel$plot}.
 }
 \examples{
 myModel <- cm_drift$new(pattern_matrix_individuals(S=10))

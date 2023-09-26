@@ -4,32 +4,17 @@
 \name{cm_Conway}
 \alias{cm_Conway}
 \title{Conway's game of life}
-\value{
-An \code{\link{R6Class}}.
-}
 \description{
-A \code{\link{community_matrixmodel}} where each cell contains or not an individual.
-At each generation, an individual may survive or not and empty cells be filled by a new individuals.
+Conway's game of life
+
+Conway's game of life
 }
 \details{
+A \link{community_matrixmodel} where each cell contains or not an individual.
+At each generation, an individual may survive or not and empty cells be filled by a new individual.
+
 The survival and generation rules are fixed by the number of neighbors of each cell.
 Edge effects are eliminated by a toroidal correction.
-}
-\section{Public Methods}{
-
-\describe{
-  \item{\code{initialize(pattern = NULL, timeline = 0, type = "Species")}}{Initialization.}
-  \item{\code{plot(time=NULL, sleep=animation::ani.options("interval"), ...)}}{Default plot method: plots the pattern.}
-  \item{\code{autoplot(time=NULL, ...)}}{Makes a \code{\link{ggplot}} of the pattern.}
-  \item{\code{run(animate = FALSE, sleep = animation::ani.options("interval"), save = FALSE, more_time = NULL)}}{Run the model.}
-  \item{\code{saved_pattern(time)}}{Returns the pattern at the chosen time.}
-  \item{\code{along_time(FUN, ...)}}{Applies the function FUN to the saved patterns along time and returns a dataframe with columns \code{x} for time and \code{y} for the results of FUN. FUN must return a single value.}
-}
-}
-
-\examples{
-myModel <- community_matrixmodel$new()
-myModel$autoplot()
 }
 \section{Super classes}{
 \code{\link[SimComm:community_model]{SimComm::community_model}} -> \code{\link[SimComm:community_matrixmodel]{SimComm::community_matrixmodel}} -> \code{cm_Conway}
@@ -37,9 +22,11 @@ myModel$autoplot()
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{to_survive}}{The number of neighbors necessary for an individual to survive. Default is \code{2:3}.}
+\item{\code{to_survive}}{The number of neighbors necessary for an individual to survive.
+Default is \code{2:3}.}
 
-\item{\code{to_generate}}{The number of neighbors necessary for an empty cell to generate an individual. Default is 3.}
+\item{\code{to_generate}}{The number of neighbors necessary for an empty cell to generate an individual.
+Default is 3.}
 }
 \if{html}{\out{</div>}}
 }
@@ -67,6 +54,7 @@ myModel$autoplot()
 \if{html}{\out{<a id="method-cm_Conway-new"></a>}}
 \if{latex}{\out{\hypertarget{method-cm_Conway-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{cm_Conway$new(
   pattern = pattern_matrix_individuals(),
@@ -76,6 +64,22 @@ myModel$autoplot()
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{pattern}}{The pattern which describes the location of agents.}
+
+\item{\code{timeline}}{A numeric vector that contains the points of time of interest.}
+
+\item{\code{type}}{The type of individuals. Informational only.}
+
+\item{\code{neighborhood}}{A character string defining what is the neighborhood of a cell:
+"von Neumann 1" or "4" for the closest four neighbors (North, West, South, East);
+"Moore 1" or "8" for all adjacent cells (the first four and North-West, etc.);
+"Moore 2" or "24" for two rings of neighbors.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-cm_Conway-clone"></a>}}
