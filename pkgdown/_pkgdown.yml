@@ -16,8 +16,8 @@ reference:
     - starts_with("cg_")
     - starts_with("cm_")
     - starts_with("cp_")
-    - patterns
-  - title: Entropart methods
+    - pattern
+  - title: entropart methods
     contents:
     - entropart
   - title: Utilities
