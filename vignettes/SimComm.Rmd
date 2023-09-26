@@ -40,7 +40,6 @@ To add a new model, an R6 class must be created to describe it.
 It must inherit from one of these base classes, depending on the pattern it relies on:
 
 - `community_matrixmodel` for matrices,
-
 - `community_gridmodel` for point grids.
 
 
@@ -50,7 +49,7 @@ The `cm_Conway` class is such a [model](https://en.wikipedia.org/wiki/Conway%27s
 The community is represented by a logical matrix where each cell is either occupied or not.
 An occupied cell survives if its number of neighbors is in the values of the vector `to_survive`, 2 or 3 by default. 
 An empty cell gets populated if its number of neighbors is in the values of the vector `to_generate`, 3 by default.
-The neighborhood may be defined according to [von Neumann](https://en.wikipedia.org/wiki/Von_Neumann_neighborhood) or [Moore](https://en.wikipedia.org/wiki/Moore_neighborhood). Default is Moore neighborood of order 1, i.e. the 8 surrounding cells.
+The neighborhood may be defined according to [von Neumann](https://en.wikipedia.org/wiki/Von_Neumann_neighborhood) or [Moore](https://en.wikipedia.org/wiki/Moore_neighborhood). Default is Moore neighborhood of order 1, i.e. the 8 surrounding cells.
 
 Writing a new model consists of defining its fields (here: `to_survive`, `to_generate` and `neighborhood`), its `initialize` method and a private method named `evolve`.
 The `evolve` methode codes for the evolution of each individual of the community at each step of time.
@@ -62,7 +61,7 @@ Its initial pattern and the timeline to run it along are the arguments.
 
 ```{r, message=FALSE}
 library("SimComm")
-myModel <- cm_Conway$new(pattern=pm_Conway_blinker(), timeline=0:10)
+myModel <- cm_Conway$new(pattern = pm_Conway_blinker(), timeline = 0:10)
 ```
 
 Several functions allow producing parameterized patterns, see `help(patterns)`.
@@ -79,17 +78,18 @@ The time between two steps is defined by `sleep`, in seconds.
 If `save` is set to `TRUE`, then all patterns are saved.
 
 ```{r}
-myModel$run(animate = FALSE, sleep=0.1, save=TRUE)
+myModel$run(animate = FALSE, sleep = 0.1, save = TRUE)
 ```
 
 Saving patterns allows plotting them at a chosen time:
 
 ```{r}
-p5 <- myModel$autoplot(time=5)+ theme(legend.position="none")
-p6 <- myModel$autoplot(time=6)+ theme(legend.position="none")
-p7 <- myModel$autoplot(time=7)+ theme(legend.position="none")
+library("ggplot2")
+p5 <- myModel$autoplot(time = 5) + theme(legend.position = "none")
+p6 <- myModel$autoplot(time = 6) + theme(legend.position = "none")
+p7 <- myModel$autoplot(time = 7) + theme(legend.position = "none")
 library("gridExtra")
-grid.arrange(p5, p6, p7, ncol=3)
+grid.arrange(p5, p6, p7, ncol = 3)
 ```
 
 The `along_time` method allows applying a function to all saved patterns and return its value along time.
@@ -98,10 +98,10 @@ The `sum` function is used to count them:
 
 ```{r}
 library(magrittr)
-library(ggplot2)
-myModel$along_time(sum) %>% ggplot() +
-  geom_point(aes(x=x, y=y)) +
-  labs(x="Time", y="Number of living cells")
+myModel$along_time(sum) %>% 
+  ggplot() +
+  geom_point(aes(x = x, y = y)) +
+  labs(x = "Time", y = "Number of living cells")
 ```
 
 
@@ -113,7 +113,9 @@ At each generation, each individual is replaced by one of its neighbors
 
 First, initialize the model.
 ```{r}
-myModel <- cm_drift$new(pattern_matrix_individuals(nx = 20, ny = 8, S = 20, Distribution = "lnorm"))
+myModel <- cm_drift$new(
+  pattern_matrix_individuals(nx = 20, ny = 8, S = 20, Distribution = "lnorm")
+)
 myModel$autoplot()
 ```
 
@@ -124,7 +126,7 @@ myModel$timeline <- 0:1000
 
 Run the model, save its steps.
 ```{r}
-myModel$run(animate = FALSE, save=TRUE)
+myModel$run(animate = FALSE, save = TRUE)
 ```
 
 Plot the final state.
@@ -134,7 +136,8 @@ myModel$autoplot()
 
 Plot the evolution of richness.
 ```{r}
-myModel$along_time(Richness, Correction="None") %>% ggplot() +
-  geom_point(aes(x=x, y=y)) +
-  labs(x="Time", y="Number of species")
+myModel$along_time(Richness, Correction = "None") %>% 
+  ggplot() +
+  geom_point(aes(x = x, y = y)) +
+  labs(x = "Time", y = "Number of species")
 ```
