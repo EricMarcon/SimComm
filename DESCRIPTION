@@ -7,7 +7,7 @@ Authors@R: c(
   person("Alain", "Rousteau", email="alain.rousteau@univ-antilles.fr", role=c("aut"))
   )
 Description: Simulation of communities.
-URL: https://github.com/EricMarcon/SimComm
+URL: https://ericmarcon.github.io/SimComm, https://github.com/EricMarcon/SimComm
 BugReports: https://github.com/EricMarcon/SimComm/issues
 License: GNU General Public License
 Depends:
